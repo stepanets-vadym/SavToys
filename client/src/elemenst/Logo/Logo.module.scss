@@ -1,0 +1,21 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+.logo {
+  font-family: $f-Dancing;
+  max-width: fit-content;
+  @include flexCenter;
+  font-size: 40px;
+  padding: 10px;
+}
+
+.logoIcon {
+  @include flexCenter;
+  margin-right: 8px;
+  color: $c-pink;
+}
+
+.logoText {
+  color: $c-blue;
+}

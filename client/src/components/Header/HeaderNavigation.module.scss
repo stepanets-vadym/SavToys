@@ -1,0 +1,15 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+.navigation {
+  
+}
+
+.wrapper{
+  justify-content: space-between;
+  padding-bottom: 10px;
+  align-items: center;
+  padding-top: 10px;
+  display: flex;
+}

@@ -1,0 +1,41 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+.navList {
+  @include flexCenter;
+  
+}
+
+.listItem {
+  font-size: $fs-H4-mobile + px;
+  transition: color $t-normal;
+  position: relative;
+  color: $c-dark;
+  padding: 5px;
+  
+  &::after {
+    background-color: $c-blue;
+    transition: $t-normal;
+    position: absolute;
+    bottom: -2px;
+    content: '';
+    width: 100%;
+    height: 1px;
+    opacity: 0;
+    left: 0;
+  }
+
+  &:hover {
+    color: $c-blue;
+    &::after{
+      opacity: 1;
+    }
+    
+  }
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+

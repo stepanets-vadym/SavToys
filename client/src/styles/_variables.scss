@@ -1,0 +1,46 @@
+// COLORS
+$c-pink: #ED9BC1;
+$c-Gray-2-medium: #e4e7ee;
+$c-Gray-1-light: #f4f5f9;
+$c-Blue-2-light: #d6f4fa;
+$c-Dark-blue: #3f4867;
+$c-Gray-3: #b7b8c5;
+$c-Yellow: #ffd882;
+$c-Orange: #ffc186;
+$c-black: #000000;
+$c-Green: #69cb87;
+$c-Brown: #d9c8bb;
+$c-blue: #74ccd8;
+$c-dark: #090F24;
+$c-Text: #686877;
+$c-Red: #ff5341;
+$c-white: #fff;
+
+// Font
+$f-Dancing: 'Dancing Script', cursive;
+$f-NotoSans: 'Noto Sans', sans-serif;
+$f-Pacifico: 'Pacifico', cursive;
+$f-Rubik: 'Rubik', sans-serif;
+
+// Font size
+$fs-H1-Desktop: 28;
+$fs-H2-Desktop: 22;
+$fs-H3-Desktop: 18;
+$fs-H4-Desktop: 16;
+$fs-Text-Desktop: 18;
+
+$fs-H1-mobile: 26;
+$fs-H2-mobile: 20;
+$fs-H3-mobile: 16;
+$fs-H4-mobile: 14;
+$fs-Text-mobile: 16;
+
+$fs-24: 24;
+// Letter spacing
+$ls-base: 2;
+
+// Transition
+$t-normal: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+// Box Shadow
+$bs-normal: 3px 4px 7px rgba($c-black, 0.1);

@@ -1,0 +1,63 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+.CatalogMenu{
+  @include flexCenter;
+
+}
+
+.menu{
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px 20px;
+  max-width: 356px;
+  display: flex;
+  width: 100%;
+}
+
+.burger{
+  @include flexCenter;
+  margin-right: 12px;
+  
+}
+
+.search{
+  position: relative;
+  width: 100%;
+
+}
+
+.input{
+  border: 2px solid $c-Gray-3;
+  padding: 0 100px 0 40px;
+  border-radius: 50px;
+  outline: none;
+  height: 42px;
+}
+
+.searchIcon{
+  font-size: $fs-H4-Desktop + px;
+  pointer-events: none;
+  @include flexCenter;
+  position: absolute;
+  color: $c-dark;
+  left: 16px;
+  top: 12px;
+}
+
+.searchBtn{
+  box-shadow: 0px 2px 4px rgba($c-blue, 0.2);
+  border-bottom-right-radius:19px; 
+  border-top-right-radius:19px; 
+  background-color: $c-blue;
+  @include flexCenter;
+  position: absolute;
+  color: $c-white;
+  max-width: 92px;
+  border: none;
+  height: 41px;
+  width: 100%;
+  right: 1px;
+  top: 0px;
+}

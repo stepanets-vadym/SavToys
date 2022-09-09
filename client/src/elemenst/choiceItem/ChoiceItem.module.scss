@@ -1,0 +1,28 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+.choiceIcon {
+  font-size: $fs-H1-mobile + px;
+  @include flexCenter;
+  position: relative;
+  width: fit-content;
+  color: $c-blue;
+  padding: 5px;
+  &:not(:last-child){
+    margin-right: 10px;
+  }
+}
+
+.count {
+  background-color: $c-pink;
+  @include flexCenter;
+  position: absolute;
+  border-radius: 50%;
+  color: $c-white;
+  font-size: 10px;
+  height: 20px;
+  width: 20px;
+  right: -4px;
+  top: -4px;
+}
