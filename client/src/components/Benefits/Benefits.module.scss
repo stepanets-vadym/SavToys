@@ -1,0 +1,33 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+
+
+.wrapper{
+  justify-content: space-between;
+  padding-bottom: 40px;
+  align-items: center;
+  padding-top: 40px;
+  display: flex;
+  
+}
+
+.benefitsItem{
+  @include flexCenter;
+
+}
+
+.icon{
+  @include flexCenter;
+  margin-right: 10px;
+  font-size: 50px;
+}
+
+.name{
+  font-size: $fs-H3-Desktop + px;
+  max-width: 130px;
+  font-weight: 500;
+  color: $c-dark;
+  width: 100%;
+}

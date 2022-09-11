@@ -1,0 +1,13 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+.ImagesBlock{
+  background: $c-Gray-1-light;
+  
+}
+
+.wrapper{
+  padding-bottom: 20px;
+  padding-top: 20px;
+}

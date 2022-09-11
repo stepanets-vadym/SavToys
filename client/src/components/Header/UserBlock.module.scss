@@ -3,9 +3,56 @@
 @import '../../styles/mixins';
 
 .logBlock {
-  justify-content: space-around;
+  justify-content: flex-end;
   align-items: center;
-  max-width: 290px;
+  margin-left: 20px;
   display: flex;
-  width: 100%;
+  
+}
+
+.personImg {
+  @include flexCenter;
+  margin-right: 10px;
+  max-height: 34px;
+  max-width: 34px;
+}
+
+.personIcon {
+  @include flexCenter;
+  margin-right: 10px;
+  color: $c-Gray-3;
+  font-size: 34px;
+}
+
+.log{
+  display: flex;
+  flex-direction: column;
+}
+
+.logBtn{
+  font-size: $fs-H4-mobile + px;
+  width: fit-content;
+  display: flex;
+}
+
+.loginBtn{
+  margin-bottom: 3px;
+  color: $c-Gray-3;
+}
+
+.registrationBtn{
+  font-weight: 600;
+}
+
+.choiceBlock{
+  @include flexCenter;
+  margin-left: 20px;
+}
+
+
+
+.choiseItem{
+  &:not(:last-child){
+    margin-right: 10px;
+  }
 }
