@@ -28,7 +28,10 @@ const Product = sequelize.define('product', {
   name: { type: DataTypes.STRING, unique: true },
   price: { type: DataTypes.INTEGER },
   rating: { type: DataTypes.INTEGER, defaultValue: 0 },
-  img: DataTypes.ARRAY(DataTypes.STRING)
+  img: DataTypes.ARRAY(DataTypes.STRING),
+  newProd: {type: DataTypes.BOOLEAN},
+  bestseller: {type: DataTypes.BOOLEAN},
+  discount: {type: DataTypes.BOOLEAN},
 });
 
 const Description = sequelize.define('description', {

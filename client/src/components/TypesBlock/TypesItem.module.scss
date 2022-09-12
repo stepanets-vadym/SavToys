@@ -1,0 +1,35 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+.typesItem {
+  flex-direction: column;
+  transition: $t-normal;
+  @include flexCenter;
+  border-radius: 10px;
+  max-width: 166px;
+  cursor: pointer;
+  height: 170px;
+  padding: 14px;
+  width: 100%;
+
+  &:hover {
+    background-color: $c-blue;
+    & > h3 {
+      transition: $t-normal;
+      color: $c-white;
+    }
+  }
+}
+
+.icon {
+  @include flexCenter;
+  margin-bottom: 5px;
+  font-size: 85px;
+}
+
+.typesTitle {
+  font-size: $fs-H3-mobile + px;
+  font-weight: 500;
+  color: $c-dark;
+}

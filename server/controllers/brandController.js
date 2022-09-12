@@ -21,6 +21,17 @@ class BrandController {
     const brands = await Brand.findAll();
     return res.json(brands);
   }
+  async getOne(req, res, next) {
+    try {
+      const { id } = req.params;
+      const product = await Brand.findOne({
+        where: { id },
+      });
+      return res.json(product);
+    } catch (error) {
+      next(ApiError.badRequest(error.message));
+    }
+  }
 }
 
 module.exports = new BrandController();

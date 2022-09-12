@@ -1,4 +1,9 @@
-const { Product, Characteristics, Description } = require('../models/models');
+const {
+  Product,
+  Brand,
+  Characteristics,
+  Description,
+} = require('../models/models');
 const ApiError = require('../error/ApiError');
 const uuid = require('uuid');
 const path = require('path');
@@ -6,11 +11,39 @@ const path = require('path');
 class ProductController {
   async create(req, res, next) {
     try {
-      const { name, price, brandId, typeId, description, characteristics } =
-        req.body;
-      const { img } = req.files;
-      let fileName = uuid.v4() + '.png';
-      img.mv(path.resolve(__dirname, '..', 'static', 'products', fileName));
+      const {
+        name,
+        price,
+        brandId,
+        typeId,
+        description,
+        characteristics,
+        newProd,
+        bestseller,
+        discount,
+      } = req.body;
+
+      const files = req.files.img;
+      let fileNames = [];
+      let promises = [];
+      files.forEach((file) => {
+        file.name = uuid.v4() + '.png';
+        const savePath = path.resolve(
+          __dirname,
+          '..',
+          'static',
+          'products',
+          file.name
+        );
+        promises.push(file.mv(savePath));
+        fileNames.push(file.name);
+      });
+
+      await Promise.all(promises);
+      // const id = brandId
+      // const getbrand = await Brand.findOne({
+      //   where: { id },
+      // });
 
       const product = await Product.create({
         name,
@@ -19,7 +52,10 @@ class ProductController {
         typeId,
         characteristics,
         description,
-        img: [fileName],
+        img: fileNames,
+        newProd,
+        bestseller,
+        discount,
       });
 
       return res.json(product);
@@ -73,7 +109,6 @@ class ProductController {
       return res.json(product);
     } catch (error) {
       next(ApiError.badRequest(error.message));
-
     }
   }
 }

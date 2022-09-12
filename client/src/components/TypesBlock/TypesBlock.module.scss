@@ -1,0 +1,39 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+.CatalogMenu {
+  background: $c-Gray-2-medium;
+}
+
+.wrapper {
+  padding-bottom: 60px;
+  padding-top: 60px;
+}
+
+.titleBlock{
+  @include flexCenter;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.title{
+  font-size: $fs-H1-Desktop + px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: $c-dark;
+}
+
+.subtitle{
+  font-size: $fs-H2-Desktop + px;
+  font-family: $f-Pacifico;
+  color: $c-pink;
+
+}
+
+.content{
+  grid-template-columns: repeat(6, 1fr);
+  display: grid;
+  row-gap: 30px;
+
+}
