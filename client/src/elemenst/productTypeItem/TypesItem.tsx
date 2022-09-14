@@ -1,22 +1,31 @@
 // React
-import classNames from 'classnames';
+import { FC } from 'react';
 
 // Components & elements
 import Icon from '../../elemenst/icon/Icon';
 
 // Context
 
+// Redux
+
 // Style
 import globalStyle from '../../styles/global/global.module.scss';
 import styles from './TypesItem.module.scss';
 
-export default function TypesItem() {
+// Models
+import { IType } from 'Types/ProductTypes.types';
+
+interface Props {
+  productType: IType;
+}
+
+export const TypesItem: FC<Props> = ({ productType }) => {
   return (
     <div className={styles.typesItem}>
       <div className={styles.icon}>
-        <Icon name={'Bear'} />
+        <Icon name={productType.icon} />
       </div>
-      <h3 className={styles.typesTitle}>Іграшки та ігри</h3>
+      <h3 className={styles.typesTitle}>{productType.name}</h3>
     </div>
   );
-}
+};

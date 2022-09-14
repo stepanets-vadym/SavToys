@@ -26,20 +26,28 @@ class ProductController {
       const files = req.files.img;
       let fileNames = [];
       let promises = [];
-      files.forEach((file) => {
-        file.name = uuid.v4() + '.png';
-        const savePath = path.resolve(
-          __dirname,
-          '..',
-          'static',
-          'products',
-          file.name
-        );
-        promises.push(file.mv(savePath));
-        fileNames.push(file.name);
-      });
 
-      await Promise.all(promises);
+      if (Array.isArray(files)) {
+        files.forEach((file) => {
+          file.name = uuid.v4() + '.png';
+          const savePath = path.resolve(
+            __dirname,
+            '..',
+            'static',
+            'products',
+            file.name
+          );
+          promises.push(file.mv(savePath));
+          fileNames.push(file.name);
+        });
+
+        await Promise.all(promises);
+      } else {
+        const { img } = req.files;
+        let fileName = uuid.v4() + '.png';
+        img.mv(path.resolve(__dirname, '..', 'static', 'products', fileName));
+        fileNames.push(fileName);
+      }
       // const id = brandId
       // const getbrand = await Brand.findOne({
       //   where: { id },

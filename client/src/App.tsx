@@ -1,10 +1,8 @@
 // React
 
 // Components & elements
-import Benefits from 'components/Benefits/Benefits';
-import ImagesBlock from 'components/ImagesBlock/ImagesBlock';
-import TypesBlock from 'components/TypesBlock/TypesBlock';
-import Banner from './components/Banner/Banner';
+import AppRouter from 'components/appRouter/AppRouter';
+import HomePage from 'Pages/homePage/HomePage';
 import Header from './components/Header/Header';
 import { Sprite } from './elemenst/sprite/Sprite';
 
@@ -13,16 +11,12 @@ import { Sprite } from './elemenst/sprite/Sprite';
 // Style
 import './styles/index.scss';
 
-
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <Sprite />
-      <Header/>
-      <Banner/>
-      <ImagesBlock/>
-      <Benefits/>
-      <TypesBlock/>
+      <Header />
+      <AppRouter/>
     </div>
   );
 }

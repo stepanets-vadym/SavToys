@@ -2,8 +2,8 @@
 @import '../../styles/media';
 @import '../../styles/mixins';
 
-.CatalogMenu {
-  background: $c-Gray-2-medium;
+.TypesBlock {
+  background: $c-Gray-1-light;
 }
 
 .wrapper {
@@ -11,29 +11,27 @@
   padding-top: 60px;
 }
 
-.titleBlock{
+.titleBlock {
   @include flexCenter;
   flex-direction: column;
   margin-bottom: 40px;
 }
 
-.title{
+.title {
   font-size: $fs-H1-Desktop + px;
   margin-bottom: 10px;
   font-weight: 600;
   color: $c-dark;
 }
 
-.subtitle{
+.subtitle {
   font-size: $fs-H2-Desktop + px;
   font-family: $f-Pacifico;
   color: $c-pink;
-
 }
 
-.content{
+.content {
   grid-template-columns: repeat(6, 1fr);
   display: grid;
   row-gap: 30px;
-
 }

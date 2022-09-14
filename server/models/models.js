@@ -31,7 +31,7 @@ const Product = sequelize.define('product', {
   img: DataTypes.ARRAY(DataTypes.STRING),
   newProd: {type: DataTypes.BOOLEAN},
   bestseller: {type: DataTypes.BOOLEAN},
-  discount: {type: DataTypes.BOOLEAN},
+  discount: {type: DataTypes.INTEGER},
 });
 
 const Description = sequelize.define('description', {

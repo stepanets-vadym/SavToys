@@ -1,0 +1,10 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+
+.toysBlock{
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 24px;
+  display: grid;
+}

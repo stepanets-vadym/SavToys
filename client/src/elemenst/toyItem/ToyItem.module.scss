@@ -1,0 +1,127 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+.toyItem {
+  border: 1px solid $c-Gray-2-medium;
+  flex-direction: column;
+  @include flexCenter;
+  border-radius: 15px;
+  max-width: 262px;
+  padding: 10px;
+  width: 100%;
+}
+
+.imageBlock {
+  @include flexCenter;
+  margin-bottom: 12px;
+  position: relative;
+  max-height: 241px;
+  max-width: 241px;
+  height: 100%;
+  width: 100%;
+}
+
+.mark{
+  font-size: $fs-H4-mobile + px;
+  position: absolute;
+  font-weight: 600;
+  color: $c-white;
+  padding: 8px;
+  left: 10px;
+  top: 10px;
+}
+
+.newItem {
+  background-color: $c-Orange;
+  border-radius: 8px;
+}
+
+.discountItem{
+  background-color: $c-Orange;
+  @include flexCenter;
+  border-radius: 50%;
+  color: $c-black;
+  height: 40px;
+  width: 40px;
+}
+
+.bestItem{
+  background-color: $c-pink;
+  border-radius: 50%;
+
+}
+
+.input {
+  display: none;
+}
+
+.likeItem {
+  background-color: $c-Gray-1-light;
+  @include flexCenter;
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+  opacity: 0.8;
+  padding: 10px;
+  border: none;
+  right: 10px;
+  top: 10px;
+}
+
+.icon {
+  @include flexCenter;
+  color: $c-dark;
+  opacity: 1;
+}
+.input:checked + .icon {
+  color: $c-pink;
+}
+
+.infoBlock {
+  flex-direction: column;
+  max-width: 222px;
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+}
+
+.priseBlock {
+  margin-bottom: 16px;
+  align-items: center;
+  display: flex;
+}
+
+.discountPrice {
+  font-size: $fs-H2-Desktop + px;
+  margin-right: 10px;
+  font-weight: 600;
+  color: $c-dark;
+}
+
+.correctPrice {
+  font-size: $fs-H3-Desktop + px;
+  text-decoration: line-through;
+  color: $c-Gray-3;
+}
+
+.name {
+  font-size: $fs-H3-Desktop + px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  max-height: 70px;
+  height: 100%;
+}
+
+.deliveryBlock {
+  display: flex;
+  align-items: center;
+}
+
+.deliveryIcon {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  font-size: $fs-H2-Desktop + px;
+  @include flexCenter;
+  margin-right: 15px;
+  color: $c-Text;
+}
