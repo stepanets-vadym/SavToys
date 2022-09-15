@@ -1,18 +1,25 @@
 import { getProducts, IProduct } from './../Types/Product.types';
-import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/dist/query/react'
-import { baseURL } from 'http/Http'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
+import { baseURL } from 'http/Http';
 
 export const productAPI = createApi({
   reducerPath: 'productAPI',
-  baseQuery: fetchBaseQuery({baseUrl: baseURL}),
-  endpoints: build => ({
-    fetchAllProducts: build.query<getProducts, number>({
-      query: (limit: number = 9) => ({
-        url: '/product',
-        params: {
-          _limit: limit
-        }
-      })
-    })
-  })
-})
+  baseQuery: fetchBaseQuery({ baseUrl: baseURL }),
+  endpoints: (build) => ({
+    fetchAllProducts: build.query<
+      getProducts,
+      { limit?: string; typeId?: number, brandId?: number, page?: number }
+    >({
+      query: (args) => {
+        const {limit, typeId} = args
+        return {
+          url: '/product',
+          params: {
+            limit,
+            typeId
+          },
+        };
+      },
+    }),
+  }),
+});

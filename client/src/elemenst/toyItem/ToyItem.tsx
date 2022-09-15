@@ -17,15 +17,25 @@ interface Props {
 }
 
 export const ToyItem: FC<Props> = ({ toy }) => {
+
+  const addLikesProduct = (e: { stopPropagation: () => void; }, item: IProduct) => {
+    e.stopPropagation()
+    
+  }
+
+
   return (
     <div className={styles.toyItem}>
       <div className={styles.imageBlock}>
         {toy.img.map((image) => (
-          console.log(image),
-          
-          <img className={styles.image} src={`http://localhost:5000/${image}`} alt='img' />
+          <img
+            key={image}
+            className={styles.image}
+            src={`http://localhost:5000/${image}`}
+            alt='img'
+          />
         ))}
-        <label className={styles.likeItem}>
+        <label className={styles.likeItem} >
           <input className={styles.input} type='checkbox' />
           <span className={styles.icon}>
             <Icon name={'heart'} />
@@ -43,12 +53,17 @@ export const ToyItem: FC<Props> = ({ toy }) => {
       </div>
       <div className={styles.infoBlock}>
         <div className={styles.priseBlock}>
-          <div className={styles.discountPrice}>{toy.discount ? Math.round(toy.price - (toy.price / 100 * toy.discount)) : toy.price} грн</div>
-          {toy.discount ?<div className={styles.correctPrice}>{toy.price} грн</div> : null}
+          <div className={styles.discountPrice}>
+            {toy.discount
+              ? Math.round(toy.price - (toy.price / 100) * toy.discount)
+              : toy.price}{' '}
+            грн
+          </div>
+          {toy.discount ? (
+            <div className={styles.correctPrice}>{toy.price} грн</div>
+          ) : null}
         </div>
-        <div className={styles.name}>
-          {toy.name}
-        </div>
+        <div className={styles.name}>{toy.name}</div>
         <div className={styles.deliveryBlock}>
           <div className={styles.deliveryIcon}>
             <Icon name={'Delivery'} />

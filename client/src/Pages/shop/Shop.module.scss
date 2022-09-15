@@ -2,9 +2,32 @@
 @import '../../styles/media';
 @import '../../styles/mixins';
 
+.wrapper {
+  grid-template-columns: 1fr 3fr;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  display: grid;
+}
 
-.toysBlock{
+.toysBlock {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 24px;
   display: grid;
+}
+
+.limitBlock {
+  background-color: $c-Gray-1-light;
+  flex-direction: column;
+  border-radius: 60px;
+  margin-bottom: 20px;
+  @include flexCenter;
+  max-width: 270px;
+  padding: 10px;
+  width: 100%;
+}
+
+.sortTitle {
+  font-size: $fs-H3-Desktop + px;
+  margin-bottom: 10px;
+  color: $c-dark;
 }

@@ -1,0 +1,17 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+.select{
+  border: 1px solid $c-Gray-2-medium;
+  transition: $t-normal;
+  max-width: 220px;
+  outline: none;
+  height: 30px;
+  width: 100%;
+}
+
+.option{
+  transition: $t-normal;
+
+}
