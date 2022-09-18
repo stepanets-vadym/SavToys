@@ -8,15 +8,17 @@ export const productAPI = createApi({
   endpoints: (build) => ({
     fetchAllProducts: build.query<
       getProducts,
-      { limit?: string; typeId?: number, brandId?: number, page?: number }
+      { limit?: string; typeId?: number , brandId?: number, page?: number }
     >({
       query: (args) => {
-        const {limit, typeId} = args
+        const {limit, typeId, brandId, page} = args
         return {
           url: '/product',
           params: {
             limit,
-            typeId
+            typeId,
+            brandId,
+            page
           },
         };
       },

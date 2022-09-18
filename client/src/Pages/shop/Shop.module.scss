@@ -15,19 +15,8 @@
   display: grid;
 }
 
-.limitBlock {
-  background-color: $c-Gray-1-light;
-  flex-direction: column;
-  border-radius: 60px;
-  margin-bottom: 20px;
-  @include flexCenter;
-  max-width: 270px;
+.countBlock{
+  font-size: $fs-H2-mobile + px;
+  font-weight: 600;
   padding: 10px;
-  width: 100%;
-}
-
-.sortTitle {
-  font-size: $fs-H3-Desktop + px;
-  margin-bottom: 10px;
-  color: $c-dark;
 }

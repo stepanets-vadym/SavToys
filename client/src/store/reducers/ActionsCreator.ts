@@ -7,7 +7,7 @@ import { typeSlice } from './ProductsTypesList';
 export const fetchProductTypes = () => async (dispatch: AppDispatch) => {
   try {
     dispatch(typeSlice.actions.typesFetching());
-
+    
     const response = await axios.get<IType[]>(baseURL + '/type');
     dispatch(typeSlice.actions.typesFetchingSuccess(response.data));
   } catch (error: any) {

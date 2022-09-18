@@ -1,0 +1,44 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+.sortByType {
+  border-radius: 15px 15px 0 0;
+  border: 2px solid $c-blue;
+  max-width: 262px;
+  width: 100%;
+}
+
+.catalogTitle {
+  font-size: $fs-H2-mobile + px;
+  border-radius: 15px 15px 0 0;
+  background-color: $c-blue;
+  padding-bottom: 18px;
+  align-items: center;
+  padding-left: 14px;
+  padding-top: 18px;
+  color: $c-white;
+  display: flex;
+}
+
+.icon {
+  @include flexCenter;
+  margin-right: 15px;
+}
+
+.catalogItem {
+  font-size: $fs-H3-Desktop + px;
+  transition: 0.2s ease;
+  padding-bottom: 14px;
+  padding-left: 20px;
+  padding-top: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  color: $c-dark;
+
+  &:hover {
+    background-color: $c-pink;
+    transition: 0.2s ease;
+    color: $c-white;
+  }
+}

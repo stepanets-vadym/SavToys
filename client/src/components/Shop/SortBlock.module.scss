@@ -1,0 +1,26 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+.sortBlock{
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.limitBlock {
+  background-color: $c-Gray-1-light;
+  flex-direction: column;
+  border-radius: 60px;
+  @include flexCenter;
+  max-width: 280px;
+  padding: 10px;
+  width: 100%;
+}
+
+.sortTitle {
+  font-size: $fs-H3-Desktop + px;
+  margin-bottom: 5px;
+  color: $c-dark;
+}

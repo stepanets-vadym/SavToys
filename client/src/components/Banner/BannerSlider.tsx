@@ -27,18 +27,6 @@ const BannerImage: SliderBannerImage[] = [
     id: 1,
     src: img1
   },
-  // {
-  //   id: 2,
-  //   src: 'https://масяня.укр/upload/iblock/eab/eab16ea1dd420fd4d2247d432c8fe3d9.jpg'
-  // },
-  // {
-  //   id: 3,
-  //   src: 'https://масяня.укр/upload/iblock/a67/a67a7686b13720fd39ab0a0f07bf2468.jpg'
-  // },
-  // {
-  //   id: 4,
-  //   src: 'https://масяня.укр/upload/iblock/c16/c16b32a1ee54aa02ee70d6c6f402047d.jpg'
-  // }
 ]
 
 

@@ -1,0 +1,32 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+.pagination {
+  @include flexCenter;
+  padding: 10px;
+}
+
+.page {
+  border: 1px solid $c-Gray-1-light;
+  font-size: $fs-H3-Desktop + px;
+  transition: $t-normal;
+  @include flexCenter;
+  border-radius: 50%;
+  font-weight: 500;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  &:hover {
+    border: 1px solid $c-blue;
+  }
+}
+
+.selectedPage {
+  background-color: $c-blue;
+  color: $c-white;
+}

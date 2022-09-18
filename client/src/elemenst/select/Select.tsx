@@ -1,5 +1,5 @@
 // React
-import { FC, useState } from 'react';
+import { FC, useState , useEffect} from 'react';
 import { LimitSelectType } from 'Types/StaticInfo.types';
 
 // Components & elements
@@ -14,25 +14,30 @@ import styles from './Select.module.scss';
 interface Props {
   options: LimitSelectType[];
   onChange: (value: string) => void;
-  value: string;
+  defaultVal:string;
+  
 }
 
-const CustomSelect: FC<Props> = ({ onChange, options, value }) => {
+const CustomSelect: FC<Props> = ({ onChange, options,  defaultVal}) => {
   const [openMenu, SetOpenMenu] = useState<boolean>(false);
-
+  const [defaultValue, setDefaultValue] = useState<string>(defaultVal)
   const getSelectValue = async (
     e: { stopPropagation: () => void },
-    value: string
+    value: string,
+    name: string
   ) => {
     e.stopPropagation();
     SetOpenMenu(!openMenu);
+    setDefaultValue(name)
     onChange(value);
+    
   };
 
+  
   return (
     <div className={styles.select} onClick={() => SetOpenMenu(!openMenu)}>
       <div className={styles.value}>
-        {value}
+        {defaultValue}
         <span className={styles.icon}>
           <Icon name={'arrow'}/>
         </span>
@@ -43,7 +48,8 @@ const CustomSelect: FC<Props> = ({ onChange, options, value }) => {
             className={styles.option}
             key={option.id}
             onClick={(e) => {
-              getSelectValue(e, option.value);
+              getSelectValue(e, option.value, option.name);
+              
             }}
           >
             {option.name}
