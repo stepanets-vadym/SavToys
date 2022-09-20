@@ -1,0 +1,24 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+.Footer {
+}
+
+.wrapper {
+}
+
+.content {
+  border: 2px solid $c-blue;
+  justify-content: center;
+  display: flex;
+}
+
+.licence {
+  font-size: $fs-H4-mobile + px;
+  background-color: $c-blue;
+  text-align: center;
+  color: $c-white;
+  padding: 14px 0;
+  width: 100%;
+}

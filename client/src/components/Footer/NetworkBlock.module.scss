@@ -1,0 +1,35 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+.NetworkBlock {
+  flex-direction: column;
+  align-items: center;
+  padding: 42px 58px;
+  display: flex;
+}
+
+.title {
+  font-size: $fs-H3-Desktop + px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: $c-dark;
+}
+
+.list {
+  @include flexCenter;
+  margin-bottom: 60px;
+  width: 100%;
+}
+
+.listItem {
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+}
+
+.link {
+  @include flexCenter;
+  font-size: $fs-H2-mobile + px;
+  color: $c-blue;
+}

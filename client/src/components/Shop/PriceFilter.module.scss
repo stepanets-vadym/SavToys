@@ -1,0 +1,56 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+.PriceFilter{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid $c-Gray-2-medium;
+}
+
+
+.priceBlock {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  display: flex;
+}
+
+.valueBox {
+  font-size: $fs-H2-mobile + px;
+  border: 2px solid $c-Gray-3;
+  border-radius: 5px;
+  max-width: 94px;
+  padding: 0 10px;
+  height: 34px;
+  width: 100%;
+}
+
+.line {
+  background-color: $c-black;
+  height: 2px;
+  width: 6px;
+}
+
+.slider {
+  height: 20px;
+  max-width: 214px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.track {
+  height: 5px;
+  background-color: $c-pink;
+  top: calc(50% - 2.5px);
+  border-radius: 20px;
+}
+
+.thumb {
+  width: 20px;
+  height: 20px;
+  background-color: $c-blue;
+  top: calc(50% - 10px);
+  border-radius: 20px;
+}

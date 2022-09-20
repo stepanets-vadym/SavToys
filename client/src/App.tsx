@@ -2,6 +2,7 @@
 
 // Components & elements
 import AppRouter from 'components/appRouter/AppRouter';
+import Footer from 'components/Footer/Footer';
 import HomePage from 'Pages/homePage/HomePage';
 import Header from './components/Header/Header';
 import { Sprite } from './elemenst/sprite/Sprite';
@@ -17,6 +18,7 @@ function App() {
       <Sprite />
       <Header />
       <AppRouter/>
+      <Footer/>
     </div>
   );
 }

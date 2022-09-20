@@ -49,6 +49,16 @@ export const productSortByClick = createSlice({
     sortByExpensiveProductPrice(state) {
       state.productSort = state.productSort.sort((a, b) => b.price - a.price);
     },
+
+    sortByPrice(state, action: PayloadAction<{max:number, min: number}> ) {
+
+      function filterRange(arr:IProduct[], a:number, b:number) {
+        
+        return arr.filter(item => (a <= item.price && item.price <= b));
+      }
+
+      state.productSort = filterRange(state.productSort, action.payload.min, action.payload.max)
+    },
   },
 });
 

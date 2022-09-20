@@ -2,7 +2,7 @@
 @import '../../styles/media';
 @import '../../styles/mixins';
 
-.sortByType {
+.sortByBrand {
   border: 2px solid $c-blue;
   margin-bottom: 20px;
   border-radius: 15px;
@@ -16,6 +16,7 @@
   border-radius: 15px 15px 0 0;
   background-color: $c-blue;
   padding-bottom: 18px;
+  margin-bottom: 20px;
   align-items: center;
   padding-left: 14px;
   padding-top: 18px;

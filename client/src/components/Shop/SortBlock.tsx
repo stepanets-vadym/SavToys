@@ -16,40 +16,11 @@ import styles from './SortBlock.module.scss';
 interface Props {
   setLimit: (value: string) => void;
   setSortTypes: (value: string) => void;
-  sortTypes: string;
 }
 
-const SortBlock: FC<Props> = ({ setLimit, setSortTypes, sortTypes }) => {
-  // запрос на всі товари
-  const { data: products } = productAPI.useFetchAllProductsQuery({});
+const SortBlock: FC<Props> = ({ setLimit, setSortTypes, }) => {
 
-  const dispatch = useAppDispatch();
-
-  // функція яка перевіряє тип сортування незалежно від зміни у масиві продуків
-  const sortFunc = () => {
-    switch (sortTypes) {
-      case sortType.SORTBYBETS:
-        return dispatch(productSortByClick.actions.sortByBestProduct());
-      case sortType.SORTBYCHEAP:
-        return dispatch(productSortByClick.actions.sortByСheapProductPrice());
-      case sortType.SORTBYEXPENSIVE:
-        return dispatch(
-          productSortByClick.actions.sortByExpensiveProductPrice()
-        );
-      case sortType.SORTBYNEW:
-        return dispatch(productSortByClick.actions.sortByNewProduct());
-      case sortType.UNSORT:
-        if (products?.rows)
-          return dispatch(
-            productSortByClick.actions.getaAllProducts(products?.rows)
-          );
-    }
-  };
-
-  useEffect(() => {
-    sortFunc();
-  }, [sortTypes, products]);
-
+  
   return (
     <div className={styles.sortBlock}>
       <div className={styles.limitBlock}>

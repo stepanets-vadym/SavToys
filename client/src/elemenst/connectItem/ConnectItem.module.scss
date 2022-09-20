@@ -1,0 +1,36 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+
+
+.connectLink {
+  font-size: $fs-H4-mobile + px;
+  border: 2px solid transparent;
+  transition: $t-normal;
+  align-items: center;
+  border-radius: 20px;
+  position: relative;
+  width: fit-content;
+  font-weight: 500;
+  color: $c-dark;
+  display: flex;
+  padding: 5px;
+
+  
+  &:hover{
+    color: $c-blue;
+    border: 2px solid $c-pink;
+  }
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+.connectIcon {
+  @include flexCenter;
+  font-size: $fs-H2-Desktop + px;
+  margin-right: 10px;
+  
+}

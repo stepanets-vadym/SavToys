@@ -4,12 +4,7 @@ import { FC } from 'react';
 // Components & elements
 import Icon from '../../elemenst/icon/Icon';
 
-// Context
-
-// Redux
-
 // Style
-import globalStyle from '../../styles/global/global.module.scss';
 import styles from './TypesItem.module.scss';
 
 // Models

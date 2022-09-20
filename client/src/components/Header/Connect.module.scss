@@ -10,35 +10,6 @@
   width: 100%;
 }
 
-.connectLink {
-  font-size: $fs-H4-mobile + px;
-  border: 2px solid transparent;
-  transition: $t-normal;
-  @include flexCenter;
-  border-radius: 20px;
-  position: relative;
-  font-weight: 500;
-  color: $c-dark;
-  padding: 5px;
 
-  
-  &:hover{
-    color: $c-blue;
-    border: 2px solid $c-pink;
-  }
 
-  &:not(:last-child) {
-    margin-right: 10px;
-  }
-}
-
-.connectIcon {
-  @include flexCenter;
-  font-size: $fs-H2-Desktop + px;
-  margin-right: 10px;
-  
-}
-
-.connectInfo {
-}
 

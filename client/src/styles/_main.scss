@@ -67,6 +67,16 @@ input {
 
 
 
+.track{
+  height: 5px;
+  background-color: red;
+  top: 10px;
+}
+
+.thumb{
+  padding: 5px;
+  border: 1px solid black;
+}
 
 // ! Media example
 // @include media('<=tablet') {

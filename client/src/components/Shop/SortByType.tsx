@@ -1,14 +1,26 @@
+import classNames from 'classnames';
 import Icon from 'elemenst/icon/Icon';
 import { useAppDispatch, useAppSelector } from 'hooks/redux';
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { fetchProductTypes } from 'store/reducers/ActionsCreator';
 
 // Styles
 import styles from './SortByType.module.scss';
 
-const SortByType = () => {
+interface Props {
+  setTypeProd: (value: number | undefined) => void;
+}
+
+const SortByType: FC<Props> = ({ setTypeProd }) => {
   const dispatch = useAppDispatch();
   const { types } = useAppSelector((state) => state.typeReduser);
+
+  const [active, setActive] = useState<number | undefined>(0);
+
+  const setValue = (num: number | undefined) => {
+    setTypeProd(num);
+    setActive(num);
+  };
 
   // запрос на всі типи
   useEffect(() => {
@@ -17,7 +29,10 @@ const SortByType = () => {
 
   return (
     <div className={styles.sortByType}>
-      <div className={styles.catalogTitle}>
+      <div
+        className={styles.catalogTitle}
+        onClick={() => setValue(undefined)}
+      >
         <span className={styles.icon}>
           <Icon name={'Burger'} />
         </span>
@@ -25,9 +40,13 @@ const SortByType = () => {
       </div>
       {types?.map((type) => (
         <div
-          className={styles.catalogItem}
+          className={
+            active === type.id
+              ? classNames(styles.catalogItem, styles.activeItem)
+              : styles.catalogItem
+          }
           key={`type = ${type.id}`}
-          onClick={() => console.log(type.id)}
+          onClick={() => setValue(type.id)}
         >
           {type.name}
         </div>

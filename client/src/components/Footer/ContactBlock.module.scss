@@ -1,0 +1,38 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+.ContactBlock {
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 42px 58px;
+
+  display: flex;
+}
+
+.title {
+  font-size: $fs-H3-Desktop + px;
+  margin-bottom: 20px;
+  font-weight: 600;
+
+  color: $c-dark;
+}
+
+.listItem {
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.networkBlock {
+  @include flexCenter;
+}
+
+.networkLink {
+  font-size: $fs-H3-mobile + px;
+  color: $c-pink;
+  @include flexCenter;
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
+}

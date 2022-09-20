@@ -1,0 +1,51 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+.MenuBlock {
+  border-right: 2px solid $c-blue;
+  border-left: 2px solid $c-blue;
+  padding: 42px 58px;
+  max-width: 480px;
+  width: 100%;
+}
+
+.title {
+  font-size: $fs-H3-Desktop + px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: $c-dark;
+}
+
+.content {
+  justify-content: space-between;
+  display: flex;
+}
+
+.list {
+  max-width: 208px;
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+
+.listItem {
+  font-size: $fs-H4-mobile + px;
+  border: 1px solid transparent;
+  transition: $t-normal;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  &:hover {
+    transition: $t-normal;
+    border: 1px solid $c-blue;
+  }
+}
+
+.link {
+  transition: $t-normal;
+  color: $c-dark;
+  display: flex;
+  padding: 5px;
+}

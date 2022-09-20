@@ -1,15 +1,12 @@
 // React
 import classNames from 'classnames';
-// Context
 
 // Components & elements
 import Icon from 'elemenst/icon/Icon';
-import { baseURL } from 'http/Http';
 import { FC } from 'react';
 import { IProduct } from 'Types/Product.types';
 
 // Styles
-import globalStyle from '../../styles/global/global.module.scss';
 import styles from './ToyItem.module.scss';
 
 interface Props {
@@ -17,13 +14,6 @@ interface Props {
 }
 
 export const ToyItem: FC<Props> = ({ toy }) => {
-
-  const addLikesProduct = (e: { stopPropagation: () => void; }, item: IProduct) => {
-    e.stopPropagation()
-    
-  }
-
-
   return (
     <div className={styles.toyItem}>
       <div className={styles.imageBlock}>
@@ -35,7 +25,7 @@ export const ToyItem: FC<Props> = ({ toy }) => {
             alt='img'
           />
         ))}
-        <label className={styles.likeItem} >
+        <label className={styles.likeItem}>
           <input className={styles.input} type='checkbox' />
           <span className={styles.icon}>
             <Icon name={'heart'} />
