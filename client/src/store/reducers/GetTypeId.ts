@@ -1,14 +1,13 @@
-import { IType } from 'Types/ProductTypes.types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface TypeIdState {
-  typeId?: IType;
+interface getTypeIdType {
+  typeId: number | undefined;
   
 }
 
 
-const initialState:TypeIdState = {
-  // typeId: {}
+const initialState = {
+  typeId: 0
  
 };
 
@@ -16,10 +15,12 @@ export const getTypeIdSlice = createSlice({
   name: 'typeId',
   initialState,
   reducers: {
-    getType(state, action: PayloadAction<IType>) {
-      
+    getType(state, action: PayloadAction<number>) {
+      state.typeId = action.payload
     },
-    
+    deleteType(state, action) {
+      state.typeId = 0
+    }
   },
 });
 

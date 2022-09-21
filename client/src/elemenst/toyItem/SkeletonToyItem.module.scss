@@ -1,0 +1,20 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+
+.type {
+  border: 2px solid$c-blue;
+  border-radius: 15px;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  max-width: 262px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+}
+
+.icon {
+  margin-bottom: 20px;
+}

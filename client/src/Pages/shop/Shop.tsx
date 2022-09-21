@@ -11,7 +11,6 @@ import SortBlock from 'components/Shop/SortBlock';
 import { ToyItem } from 'elemenst/toyItem/ToyItem';
 import SortByType from 'components/Shop/SortByType';
 import Pagination from 'components/Shop/Pagination';
-import PriceFilter from 'components/Shop/PriceFilter';
 
 // Redux
 import { useAppDispatch, useAppSelector } from 'hooks/redux';
@@ -22,12 +21,13 @@ import globalStyle from '../../styles/global/global.module.scss';
 import styles from './Shop.module.scss';
 import Icon from 'elemenst/icon/Icon';
 import SortByBrand from 'components/Shop/SortByBrand';
+import { SkeletonToyItem } from 'elemenst/toyItem/SkeletonToyItem';
 
 const Shop = () => {
   // скільки товарів на сторінці
   const [limit, setLimit] = useState<string>('5');
   // сортування по типу
-  const [typeProd, setTypeProd] = useState<number | undefined>(undefined);
+  const { typeId } = useAppSelector((state) => state.typeIdReducer);
   const [brandId, setBrandId] = useState<number | undefined>(undefined);
   // стан відповідно якого сортується масив товарів
   const [sortTypes, setSortTypes] = useState<string>(sortType.UNSORT);
@@ -36,11 +36,12 @@ const Shop = () => {
   // значення фільтрацію за ціною
   const [min, setMin] = useState<number>(10);
   const [max, setMax] = useState<number>(20000);
+
   // запрос на всі товари
-  const { data: products } = productAPI.useFetchAllProductsQuery({
+  const { data: products, isLoading } = productAPI.useFetchAllProductsQuery({
     limit: limit,
     page: pageNum,
-    typeId: typeProd !== undefined ? typeProd : undefined,
+    typeId: typeId !== 0 ? typeId : undefined,
   });
 
   // сортований масив з редаксу
@@ -80,13 +81,13 @@ const Shop = () => {
     sortFunc();
     if (products?.rows)
       dispatch(productSortByClick.actions.sortByPrice({ min: min, max: max }));
-  }, [sortTypes, products, typeProd, min, max]);
+  }, [sortTypes, products, typeId, min, max]);
 
   return (
     <div className={styles.shopPage}>
       <div className={classNames(styles.wrapper, globalStyle.container)}>
         <div className={styles.sideBar}>
-          <SortByType setTypeProd={setTypeProd} />
+          <SortByType />
           <SortByBrand
             setMax={setMax}
             setMin={setMin}
@@ -101,6 +102,7 @@ const Shop = () => {
             <SortBlock setLimit={setLimit} setSortTypes={setSortTypes} />
           </div>
           <div className={styles.toysBlock}>
+            {isLoading && <SkeletonToyItem typesCount={9} />}
             {productSort?.map((toy) => (
               <ToyItem key={`toy - ${toy.id}`} toy={toy} />
             ))}

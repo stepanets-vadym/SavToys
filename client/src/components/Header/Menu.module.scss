@@ -1,0 +1,82 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+.Menu {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  width: 100%;
+  z-index: 900;
+  display: flex;
+  height: 100vh;
+  position: absolute;
+  pointer-events: none;
+  transition: $t-normal;
+}
+
+.openMenu {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.wrapper {
+  padding-top: 158px;
+  display: flex;
+  width: 100%;
+}
+
+.content {
+  background-color: $c-white;
+  border: 2px solid $c-blue;
+  flex-direction: column;
+  height: fit-content;
+  max-width: 356px;
+  display: flex;
+  width: 100%;
+}
+
+.menuItem {
+  font-size: $fs-H3-Desktop + px;
+  padding: 16px 0 16px 20px;
+  transition: $t-normal;
+  align-items: center;
+  font-weight: 500;
+  color: $c-black;
+  cursor: pointer;
+  display: flex;
+  &:not(:last-child) {
+    border-bottom: 1px solid $c-blue;
+  }
+
+  &:hover {
+    background-color: $c-pink;
+    color: $c-white;
+  }
+}
+
+
+.icon {
+  font-size: $fs-H1-mobile + px;
+  transition: $t-normal;
+
+  @include flexCenter;
+  margin-right: 20px;
+  color: $c-Gray-3;
+}
+
+.menuItem:hover .icon {
+  color: $c-white;
+}
+
+
+// .activeMenuItme{
+//   background-color: $c-pink;
+//   color: $c-white;
+
+//   & .icon{ 
+//     color: $c-white;
+//   }
+// }

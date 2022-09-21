@@ -1,26 +1,22 @@
+// React
 import classNames from 'classnames';
-import Icon from 'elemenst/icon/Icon';
+import { useEffect } from 'react';
+
+// Redux
 import { useAppDispatch, useAppSelector } from 'hooks/redux';
-import { FC, useEffect, useState } from 'react';
 import { fetchProductTypes } from 'store/reducers/ActionsCreator';
+import { getTypeIdSlice } from 'store/reducers/GetTypeId';
+
+// Components & elements
+import Icon from 'elemenst/icon/Icon';
 
 // Styles
 import styles from './SortByType.module.scss';
 
-interface Props {
-  setTypeProd: (value: number | undefined) => void;
-}
-
-const SortByType: FC<Props> = ({ setTypeProd }) => {
+const SortByType = () => {
   const dispatch = useAppDispatch();
   const { types } = useAppSelector((state) => state.typeReduser);
-
-  const [active, setActive] = useState<number | undefined>(0);
-
-  const setValue = (num: number | undefined) => {
-    setTypeProd(num);
-    setActive(num);
-  };
+  const { typeId } = useAppSelector((state) => state.typeIdReducer);
 
   // запрос на всі типи
   useEffect(() => {
@@ -29,10 +25,7 @@ const SortByType: FC<Props> = ({ setTypeProd }) => {
 
   return (
     <div className={styles.sortByType}>
-      <div
-        className={styles.catalogTitle}
-        onClick={() => setValue(undefined)}
-      >
+      <div className={styles.catalogTitle}>
         <span className={styles.icon}>
           <Icon name={'Burger'} />
         </span>
@@ -41,12 +34,16 @@ const SortByType: FC<Props> = ({ setTypeProd }) => {
       {types?.map((type) => (
         <div
           className={
-            active === type.id
+            typeId === type.id
               ? classNames(styles.catalogItem, styles.activeItem)
               : styles.catalogItem
           }
           key={`type = ${type.id}`}
-          onClick={() => setValue(type.id)}
+          onClick={() =>
+            typeId === type.id
+              ? dispatch(getTypeIdSlice.actions.getType(0))
+              : dispatch(getTypeIdSlice.actions.getType(type.id))
+          }
         >
           {type.name}
         </div>
