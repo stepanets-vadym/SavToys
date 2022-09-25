@@ -11,6 +11,8 @@ import SortBlock from 'components/Shop/SortBlock';
 import { ToyItem } from 'elemenst/toyItem/ToyItem';
 import SortByType from 'components/Shop/SortByType';
 import Pagination from 'components/Shop/Pagination';
+import SortByBrand from 'components/Shop/SortByBrand';
+import { SkeletonToyItem } from 'elemenst/toyItem/SkeletonToyItem';
 
 // Redux
 import { useAppDispatch, useAppSelector } from 'hooks/redux';
@@ -19,9 +21,6 @@ import { productSortByClick } from 'store/reducers/ProductsSort';
 // Styles
 import globalStyle from '../../styles/global/global.module.scss';
 import styles from './Shop.module.scss';
-import Icon from 'elemenst/icon/Icon';
-import SortByBrand from 'components/Shop/SortByBrand';
-import { SkeletonToyItem } from 'elemenst/toyItem/SkeletonToyItem';
 
 const Shop = () => {
   // скільки товарів на сторінці

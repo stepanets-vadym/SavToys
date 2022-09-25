@@ -5,6 +5,8 @@ import typeReduser from './reducers/ProductsTypesList';
 import brandReducer from './reducers/BrandList';
 import typeIdReducer from './reducers/GetTypeId';
 import openMenuReducer from './reducers/OpenMenu';
+import getUser from './reducers/GetUser';
+import likesProducts from './reducers/LikeProducts';
 
 const rootReduser = combineReducers({
   // Отримуємо всі типи
@@ -19,6 +21,10 @@ const rootReduser = combineReducers({
   typeIdReducer,
   // Меню каталогу
   openMenuReducer,
+  // Юзер 
+  getUser,
+  // Обрані товари
+  likesProducts
 });
 
 export const setupStore = () => {

@@ -10,6 +10,7 @@ import { AppDispatch } from './../store';
 // Reducers
 import { typeSlice } from './ProductsTypesList';
 import { brandSlice } from './BrandList';
+import { getUser } from './GetUser';
 
 export const fetchProductTypes = () => async (dispatch: AppDispatch) => {
   try {
@@ -31,4 +32,27 @@ export const fetchBrands = () => async (dispatch: AppDispatch) => {
   } catch (error: any) {
     dispatch(brandSlice.actions.brandsFetchingError(error.message));
   }
+};
+
+export const getCheckedUser = () => async (dispatch: AppDispatch) => {
+  const apiUrl = `${baseURL}/user/auth`;
+  const token = localStorage.getItem('token');
+  const user = localStorage.getItem('user');
+  console.log('work');
+
+  const config = {
+    method: 'get',
+    url: apiUrl,
+    headers: {
+      Authorization:
+        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsImVtYWlsIjoiZGFzZGFzZGFoc0BnbWFpbC5kYXNkIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE2NjQwNDU0MjgsImV4cCI6MTY2NDEzMTgyOH0.E6JaPzOC5OYHwXtD2E43ad11IUFsHgU8lARLhfqIQSs',
+    },
+  };
+  await axios(config)
+    .then((res) => {
+      dispatch(getUser.actions.getUser(JSON.parse(user !== null ? user : '')));
+    })
+    .catch((errors) => {
+      console.log(errors);
+    });
 };

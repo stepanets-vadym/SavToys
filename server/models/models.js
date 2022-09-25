@@ -58,6 +58,9 @@ const User = sequelize.define('user', {
   email: { type: DataTypes.STRING, unique: true },
   password: { type: DataTypes.STRING },
   role: { type: DataTypes.STRING, defaultValue: 'User' },
+  lastName: {type: DataTypes.STRING, require: true},
+  firstName: {type: DataTypes.STRING, require: true},
+  img: {type: DataTypes.STRING},
   isActivated: { type: DataTypes.BOOLEAN, defaultValue: false },
   activationLink: { type: DataTypes.STRING },
 });

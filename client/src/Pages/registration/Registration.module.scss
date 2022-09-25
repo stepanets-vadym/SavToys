@@ -1,0 +1,54 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+.wrapper {
+  flex-direction: column;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  max-width: 562px;
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+}
+
+.logoblock {
+  font-family: $f-Dancing;
+  max-width: fit-content;
+  @include flexCenter;
+  margin-bottom: 20px;
+  font-size: 40px;
+  padding: 10px;
+  color: $c-pink;
+}
+
+.formBtn {
+  font-size: $fs-H3-Desktop + px;
+  border: 2px solid transparent;
+  background-color: $c-blue;
+  transition: $t-normal;
+  @include flexCenter;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  padding: 0 20px;
+  color: $c-white;
+  height: 40px;
+  &:hover {
+    background-color: $c-pink;
+    transform: scale(1.1, 1.1);
+  }
+}
+
+.link {
+  border: 2px solid transparent;
+  font-size: $fs-H2-mobile;
+  transition: $t-normal;
+  width: fit-content;
+  color: $c-black;
+  display: flex;
+  padding: 5px;
+  &:hover {
+    border: 2px solid $c-pink;
+    color: $c-pink;
+  }
+}

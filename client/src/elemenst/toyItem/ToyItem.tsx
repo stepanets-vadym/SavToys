@@ -3,7 +3,9 @@ import classNames from 'classnames';
 
 // Components & elements
 import Icon from 'elemenst/icon/Icon';
+import { useAppDispatch, useAppSelector } from 'hooks/redux';
 import { FC } from 'react';
+import { likesProductsArr } from 'store/reducers/LikeProducts';
 import { IProduct } from 'Types/Product.types';
 
 // Styles
@@ -14,6 +16,20 @@ interface Props {
 }
 
 export const ToyItem: FC<Props> = ({ toy }) => {
+  const dispatch = useAppDispatch();
+  const { likesProducts } = useAppSelector((state) => state.likesProducts);
+  const LikeProductFunc = (Item: IProduct) => {
+    if (likesProducts.find((likeToy) => likeToy.id === Item.id)) {
+      dispatch(likesProductsArr.actions.remuveProduct(Item));
+      console.log('minus');
+      
+      
+    } else {
+      dispatch(likesProductsArr.actions.getLikeProduct(Item));
+      console.log('plus');
+    }
+  };
+
   return (
     <div className={styles.toyItem}>
       <div className={styles.imageBlock}>
@@ -25,8 +41,13 @@ export const ToyItem: FC<Props> = ({ toy }) => {
             alt='img'
           />
         ))}
+
         <label className={styles.likeItem}>
-          <input className={styles.input} type='checkbox' />
+          <input
+            className={styles.input}
+            type='checkbox'
+            onChange={() => LikeProductFunc(toy)}
+          />
           <span className={styles.icon}>
             <Icon name={'heart'} />
           </span>

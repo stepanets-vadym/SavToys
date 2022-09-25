@@ -7,14 +7,27 @@
   align-items: center;
   margin-left: 20px;
   display: flex;
-  
 }
 
 .personImg {
   @include flexCenter;
+  border-radius: 50%;
   margin-right: 10px;
-  max-height: 34px;
-  max-width: 34px;
+  overflow: hidden;
+  height: 40px;
+  width: 40px;
+}
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.personName {
+  font-size: $fs-H3-mobile + px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 86px;
+  overflow: hidden;
 }
 
 .personIcon {
@@ -24,35 +37,34 @@
   font-size: 34px;
 }
 
-.log{
-  display: flex;
+.log {
   flex-direction: column;
+  display: flex;
 }
 
-.logBtn{
+.logBtn {
   font-size: $fs-H4-mobile + px;
   width: fit-content;
   display: flex;
 }
 
-.loginBtn{
+.loginBtn {
   margin-bottom: 3px;
   color: $c-Gray-3;
 }
 
-.registrationBtn{
+.registrationBtn {
   font-weight: 600;
+  color: $c-black;
 }
 
-.choiceBlock{
+.choiceBlock {
   @include flexCenter;
   margin-left: 20px;
 }
 
-
-
-.choiseItem{
-  &:not(:last-child){
+.choiseItem {
+  &:not(:last-child) {
     margin-right: 10px;
   }
 }

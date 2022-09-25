@@ -11,19 +11,19 @@ const generateJwt = (id, email, role) => {
 
 class UserController {
   async registration(req, res, next) {
-    const { email, password, role } = req.body;
+    const { email, password, role, lastName, firstName } = req.body;
     if (!email && password) {
       next(ApiError.badRequest('Не коректний email або пароль'));
     }
     const candidate = await User.findOne({ where: { email } });
     if (candidate) {
-      next(ApiError.badRequest('Користувач з таким email вже існує'));
+      return next(ApiError.badRequest('Користувач з таким email вже існує'));
     }
     const hashPassword = await bcrypt.hash(password, 5);
-    const user = await User.create({ email, role, password: hashPassword });
+    const user = await User.create({ email, role, password: hashPassword, lastName, firstName });
     const token = generateJwt(user.id, user.email, user.role);
 
-    return res.json({ token });
+    return res.json({ token, user});
   }
 
   async login(req, res, next) {
@@ -39,10 +39,11 @@ class UserController {
     }
 
     const token = generateJwt(user.id, user.email, user.role);
-    return res.json({ token });
+    return res.json({ token, user });
   }
   async check(req, res, next) {
-    const token = generateJwt(req.user.id, req.user.email, req.user.role);
+    const token = generateJwt(req.user.id, req.user.email, req.user.role );
+    console.log(req);
     return res.json({ token });
   }
 }
