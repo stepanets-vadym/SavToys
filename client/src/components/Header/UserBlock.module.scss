@@ -9,6 +9,49 @@
   display: flex;
 }
 
+.userInfoBlock {
+  justify-content: space-between;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+}
+
+.userMenu {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: $c-blue;
+  transition: $t-normal;
+  pointer-events: none;
+  position: absolute;
+  padding: 5px;
+  opacity: 0;
+  top: 44px;
+  left: 0;
+}
+
+.logoutBtn {
+  border: 1px solid $c-white;
+  background-color: $c-pink;
+  border-radius: 10px;
+  @include flexCenter;
+  color: $c-white;
+  padding: 5px;
+  &:not(:last-child) {
+    margin-bottom: 5px;
+  }
+}
+
+.logoutIcon {
+  @include flexCenter;
+  margin-right: 5px;
+}
+
+.activeUserMenu {
+  transition: $t-normal;
+  pointer-events: all;
+  opacity: 1;
+}
+
 .personImg {
   @include flexCenter;
   border-radius: 50%;
@@ -18,16 +61,16 @@
   width: 40px;
 }
 .userInfo {
-  display: flex;
   flex-direction: column;
+  display: flex;
 }
 
 .personName {
   font-size: $fs-H3-mobile + px;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: 86px;
   overflow: hidden;
+  max-width: 86px;
 }
 
 .personIcon {
@@ -67,4 +110,13 @@
   &:not(:last-child) {
     margin-right: 10px;
   }
+  position: relative;
+}
+
+.logout {
+  @include flexCenter;
+  font-size: $fs-H2-Desktop + px;
+  background-color: transparent;
+  color: $c-Gray-3;
+  border: none;
 }

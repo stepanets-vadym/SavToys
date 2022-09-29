@@ -7,6 +7,8 @@ import typeIdReducer from './reducers/GetTypeId';
 import openMenuReducer from './reducers/OpenMenu';
 import getUser from './reducers/GetUser';
 import likesProducts from './reducers/LikeProducts';
+import getUserTabType from './reducers/UserPageTab';
+import cartItemsArr from './reducers/Cart';
 
 const rootReduser = combineReducers({
   // Отримуємо всі типи
@@ -21,10 +23,14 @@ const rootReduser = combineReducers({
   typeIdReducer,
   // Меню каталогу
   openMenuReducer,
-  // Юзер 
+  // Юзер
   getUser,
   // Обрані товари
-  likesProducts
+  likesProducts,
+  // Навігація по юзеру
+  getUserTabType,
+  // Корзина
+  cartItemsArr,
 });
 
 export const setupStore = () => {

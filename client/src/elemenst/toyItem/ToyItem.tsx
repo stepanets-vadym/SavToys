@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import Icon from 'elemenst/icon/Icon';
 import { useAppDispatch, useAppSelector } from 'hooks/redux';
 import { FC } from 'react';
+import { cartItemsArr } from 'store/reducers/Cart';
 import { likesProductsArr } from 'store/reducers/LikeProducts';
 import { IProduct } from 'Types/Product.types';
 
@@ -13,17 +14,18 @@ import styles from './ToyItem.module.scss';
 
 interface Props {
   toy: IProduct;
+  buyBtn: boolean;
 }
 
-export const ToyItem: FC<Props> = ({ toy }) => {
+export const ToyItem: FC<Props> = ({ toy, buyBtn }) => {
   const dispatch = useAppDispatch();
   const { likesProducts } = useAppSelector((state) => state.likesProducts);
+  const { cartItems } = useAppSelector((state) => state.cartItemsArr);
+
   const LikeProductFunc = (Item: IProduct) => {
     if (likesProducts.find((likeToy) => likeToy.id === Item.id)) {
       dispatch(likesProductsArr.actions.remuveProduct(Item));
       console.log('minus');
-      
-      
     } else {
       dispatch(likesProductsArr.actions.getLikeProduct(Item));
       console.log('plus');
@@ -48,7 +50,13 @@ export const ToyItem: FC<Props> = ({ toy }) => {
             type='checkbox'
             onChange={() => LikeProductFunc(toy)}
           />
-          <span className={styles.icon}>
+          <span
+            className={
+              likesProducts.find((likeToy) => likeToy.id === toy.id)
+                ? classNames(styles.icon, styles.activeIcon)
+                : styles.icon
+            }
+          >
             <Icon name={'heart'} />
           </span>
         </label>
@@ -75,6 +83,22 @@ export const ToyItem: FC<Props> = ({ toy }) => {
           ) : null}
         </div>
         <div className={styles.name}>{toy.name}</div>
+        {buyBtn &&
+          (cartItems.find((cartToy) => cartToy.id === toy.id) ? (
+            <button
+              onClick={() => dispatch(cartItemsArr.actions.remuveProduct(toy))}
+              className={classNames(styles.buyBtn, styles.cancelBtn)}
+            >
+              Видалити
+            </button>
+          ) : (
+            <button
+              onClick={() => dispatch(cartItemsArr.actions.getCartProduct(toy))}
+              className={styles.buyBtn}
+            >
+              В корзину
+            </button>
+          ))}
         <div className={styles.deliveryBlock}>
           <div className={styles.deliveryIcon}>
             <Icon name={'Delivery'} />

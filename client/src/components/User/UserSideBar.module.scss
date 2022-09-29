@@ -1,0 +1,64 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+.userSideBar {
+  border: 1px solid $c-blue;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: fit-content;
+  border-radius: 15px;
+  padding-top: 30px;
+  overflow: hidden;
+  max-width: 262px;
+  display: flex;
+  width: 100%;
+}
+
+.img {
+  margin-bottom: 20px;
+  @include flexCenter;
+  font-size: 100px;
+}
+
+.username {
+  font-size: $fs-H3-Desktop + px;
+  margin-bottom: 20px;
+  text-align: center;
+  max-width: 190px;
+  font-weight: 600;
+  color: $c-dark;
+  width: 100%;
+}
+
+.tabsBlock {
+  width: 100%;
+}
+
+.tab {
+  padding: 18px 10px 18px 22px;
+  align-items: center;
+  color: $c-black;
+  cursor: pointer;
+  display: flex;
+
+  &:first-child {
+    border-top: 1px solid $c-blue;
+  }
+
+  &:not(:last-child) {
+    border-bottom: 1px solid $c-blue;
+  }
+}
+
+.activeTab {
+  background-color: $c-blue;
+  color: $c-white;
+}
+
+.tabIcon {
+  font-size: $fs-H2-Desktop + px;
+  @include flexCenter;
+  margin-right: 10px;
+}

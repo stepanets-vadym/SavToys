@@ -45,7 +45,7 @@ export const getCheckedUser = () => async (dispatch: AppDispatch) => {
     url: apiUrl,
     headers: {
       Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsImVtYWlsIjoiZGFzZGFzZGFoc0BnbWFpbC5kYXNkIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE2NjQwNDU0MjgsImV4cCI6MTY2NDEzMTgyOH0.E6JaPzOC5OYHwXtD2E43ad11IUFsHgU8lARLhfqIQSs',
+        `Bearer ${token}`,
     },
   };
   await axios(config)

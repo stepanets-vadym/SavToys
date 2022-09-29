@@ -20,14 +20,7 @@ import globalStyle from '../../styles/global/global.module.scss';
 import styles from './HomePage.module.scss';
 
 export default function HomePage() {
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(fetchProductTypes());
-    if (localStorage.getItem('token')) {
-      dispatch(getCheckedUser());
-    }
-  }, []);
+  
 
   return (
     <div>

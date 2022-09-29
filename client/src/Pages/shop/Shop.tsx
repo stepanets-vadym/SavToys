@@ -103,7 +103,7 @@ const Shop = () => {
           <div className={styles.toysBlock}>
             {isLoading && <SkeletonToyItem typesCount={9} />}
             {productSort?.map((toy) => (
-              <ToyItem key={`toy - ${toy.id}`} toy={toy} />
+              <ToyItem key={`toy - ${toy.id}`} toy={toy} buyBtn={true} />
             ))}
           </div>
           <Pagination

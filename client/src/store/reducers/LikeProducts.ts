@@ -5,8 +5,12 @@ interface ProductState {
   likesProducts: IProduct[];
 }
 
+const localValue = localStorage.getItem('likesProducts')
+
 const initialState: ProductState = {
-  likesProducts: [],
+  likesProducts: localValue
+    ? JSON.parse(localValue)
+    : [],
 };
 
 export const likesProductsArr = createSlice({
@@ -17,8 +21,17 @@ export const likesProductsArr = createSlice({
       state.likesProducts.push(action.payload);
     },
     remuveProduct(state, action: PayloadAction<IProduct>) {
-
-      state.likesProducts.splice(state.likesProducts.findIndex((item)=> item.id === action.payload.id), 1);
+      // це моглоб виглядати так: (state.likesProducts.filter(toy => toy.id !== action.payload) але чомусь так не працювало
+      state.likesProducts.splice(
+        state.likesProducts.findIndex((item) => item.id === action.payload.id),
+        1
+      );
+    },
+    setlocalStorage(state) {
+      localStorage.setItem(
+        'likesProducts',
+        JSON.stringify(state.likesProducts)
+      );
     },
   },
 });

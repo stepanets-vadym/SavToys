@@ -6,6 +6,7 @@ import News from 'Pages/news/News';
 import Registration from 'Pages/registration/Registration';
 import Shop from 'Pages/shop/Shop';
 import ToyPage from 'Pages/toyPage/ToyPage';
+import UserPage from 'Pages/UserPage/UserPage';
 
 import {
   ADMIN_ROUTE,
@@ -16,6 +17,7 @@ import {
   REGISTRATION_ROUTE,
   SHOP_ROUTE,
   TOY_ROUTE,
+  USER_ROUTE,
 } from 'utils/consts';
 
 // way to the page
@@ -54,5 +56,9 @@ export const publicRoutes = [
   {
     path: CART_ROUTE,
     Element: <CartPage />,
+  },
+  {
+    path: USER_ROUTE,
+    Element: <UserPage />,
   },
 ];

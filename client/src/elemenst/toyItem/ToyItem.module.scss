@@ -22,7 +22,7 @@
   width: 100%;
 }
 
-.mark{
+.mark {
   font-size: $fs-H4-mobile + px;
   position: absolute;
   font-weight: 600;
@@ -37,7 +37,7 @@
   border-radius: 8px;
 }
 
-.discountItem{
+.discountItem {
   background-color: $c-Orange;
   @include flexCenter;
   border-radius: 50%;
@@ -46,10 +46,9 @@
   width: 40px;
 }
 
-.bestItem{
+.bestItem {
   background-color: $c-pink;
   border-radius: 50%;
-
 }
 
 .input {
@@ -74,7 +73,7 @@
   color: $c-dark;
   opacity: 1;
 }
-.input:checked + .icon {
+.activeIcon {
   color: $c-pink;
 }
 
@@ -125,4 +124,25 @@
   @include flexCenter;
   margin-right: 15px;
   color: $c-Text;
+}
+
+.buyBtn {
+  background-color: $c-Green;
+  transition: $t-normal;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  align-self: center;
+  max-width: 100px;
+  color: $c-white;
+  height: 30px;
+  border: none;
+  width: 100%;
+
+  &:hover {
+    transform: scale(1.1, 1.1);
+  }
+}
+
+.cancelBtn{
+  background-color: $c-Red;
 }

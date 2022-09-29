@@ -9,7 +9,7 @@ import styles from './ChoiceItem.module.scss';
 
 interface Props {
   name: string;
-  num?: number;
+  num?: number | null;
 }
 const ChoiceItem: FC<Props> = ({ name, num }) => {
   return (

@@ -1,0 +1,49 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+.UserOrderBlock {
+  flex-direction: column;
+  align-items: center;
+  max-width: 430px;
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+}
+
+.igmBlock {
+  margin-bottom: 20px;
+  @include flexCenter;
+  font-size: 180px;
+}
+
+.title {
+  font-size: $fs-H2-Desktop + px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.message {
+  font-size: $fs-H3-Desktop + px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: $c-Gray-3;
+}
+
+.openShop {
+  box-shadow: 0px 2px 4px rgba(51, 196, 223, 0.2);
+  background-color: $c-blue;
+  @include flexCenter;
+  border-radius: 25px;
+  padding: 0 30px;
+  color: $c-white;
+  border: none;
+  height: 46px;
+}
+
+.icon {
+  font-size: $fs-H3-Desktop + px;
+  transform: rotate(-90deg);
+  @include flexCenter;
+  margin-right: 10px;
+}

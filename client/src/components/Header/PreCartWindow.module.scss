@@ -1,0 +1,60 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+.preCartWindow {
+  background-color: $c-white;
+  border: 1px solid $c-pink;
+  position: absolute;
+  width: 262px;
+  left: -226px;
+  top: 40px;
+}
+
+.title {
+  border-bottom: 1px solid $c-pink;
+  font-size: $fs-H3-mobile + px;
+  text-align: center;
+  font-weight: 600;
+  color: $c-black;
+  padding: 5px;
+}
+
+.preCartItem {
+  padding: 0 5px 5px 5px;
+  @include flexCenter;
+  &:not(:last-child) {
+    border-bottom: 1px solid $c-Blue-2-light;
+    margin-bottom: 10px;
+  }
+}
+
+.preCartImg {
+  margin-right: 5px;
+  max-height: 50px;
+  max-width: 50px;
+}
+
+.name {
+  font-size: $fs-H4-mobile + px;
+  max-width: 205px;
+  color: $c-black;
+  height: 40px;
+  overflow: hidden;
+}
+
+.preCartFooter {
+  padding: 0 10px 10px 10px;
+  @include flexCenter;
+}
+
+.preCartBtn {
+  background-color: $c-blue;
+  @include flexCenter;
+  border-radius: 15px;
+  padding: 0 30px;
+  color: $c-white;
+  outline: none;
+  border: none;
+  height: 30px;
+}
