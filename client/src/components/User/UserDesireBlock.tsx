@@ -20,9 +20,7 @@ export default function UserDesireBlock() {
   const { likesProducts } = useAppSelector((state) => state.likesProducts);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  useEffect(() => {
-    dispatch(likesProductsArr.actions.setlocalStorage());
-  }, [likesProducts]);
+  
   return (
     <div className={styles.UserDesireBlock}>
       {likesProducts.length === 0 ? (

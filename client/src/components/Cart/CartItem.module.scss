@@ -1,0 +1,51 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+@import '../../styles/media';
+
+.toyItem {
+  padding: 5px 60px 5px 5px;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+  display: flex;
+}
+
+.toyImage {
+  border: 1px solid $c-pink;
+  @include flexCenter;
+  border-radius: 15px;
+  margin-right: 25px;
+  max-width: 250px;
+  height: 250px;
+  padding: 5px;
+  width: 100%;
+}
+
+.name {
+  font-size: $fs-H1-mobile + px;
+  align-self: flex-start;
+  font-weight: 500px;
+  margin-top: 20px;
+}
+
+.price {
+  font-size: $fs-H1-Desktop + px;
+  font-weight: 600;
+  position: absolute;
+  color: $c-black;
+  bottom: 10px;
+  right: 40px;
+}
+
+.cancelBtn {
+  background-color: transparent;
+  font-size: $fs-H2-mobile + px;
+  border: 1px solid $c-Red;
+  @include flexCenter;
+  border-radius: 50%;
+  position: absolute;
+  padding: 10px;
+  color: $c-Red;
+  right: 10px;
+  top: 10px;
+}

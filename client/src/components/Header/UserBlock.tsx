@@ -27,7 +27,9 @@ export default function UserBlock() {
   const navigate = useNavigate();
 
   // Стан меню юзера
-  const [openMenu, setOpenMenu] = useState<boolean>(true);
+  const [openMenu, setOpenMenu] = useState<boolean>(false);
+  const [openCartMenu, setOpenCartMenu] = useState<boolean>(false);
+  
   // Функія розлогінення
   const logout = () => {
     localStorage.removeItem('token');
@@ -134,12 +136,13 @@ export default function UserBlock() {
             num={likesProducts.length !== 0 ? likesProducts.length : null}
           />
         </div>
-        <div className={styles.choiseItem} onClick={() => navigate(CART_ROUTE)}>
+        <div className={styles.choiseItem} onClick={() => navigate(CART_ROUTE)} onMouseOver={() => setOpenCartMenu(true)}
+          onMouseOut={() => setOpenCartMenu(false)}>
           <ChoiceItem
             name='Cart'
             num={cartItems.length !== 0 ? cartItems.length : null}
           />
-          <PreCartWindow />
+          <PreCartWindow openCartMenu={openCartMenu} setOpenCartMenu={setOpenCartMenu} />
         </div>
       </div>
     </div>

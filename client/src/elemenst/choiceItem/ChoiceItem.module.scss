@@ -7,8 +7,9 @@
   @include flexCenter;
   position: relative;
   width: fit-content;
+  cursor: pointer;
   color: $c-blue;
-  padding: 5px;
+  padding: 5px 5px 10px 5px;
   
 }
 

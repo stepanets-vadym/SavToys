@@ -1,6 +1,6 @@
 // React
 import classNames from 'classnames';
-
+import { useEffect } from 'react';
 // Components & elements
 import Icon from 'elemenst/icon/Icon';
 import { useAppDispatch, useAppSelector } from 'hooks/redux';
@@ -31,6 +31,8 @@ export const ToyItem: FC<Props> = ({ toy, buyBtn }) => {
       console.log('plus');
     }
   };
+
+
 
   return (
     <div className={styles.toyItem}>
@@ -86,7 +88,9 @@ export const ToyItem: FC<Props> = ({ toy, buyBtn }) => {
         {buyBtn &&
           (cartItems.find((cartToy) => cartToy.id === toy.id) ? (
             <button
-              onClick={() => dispatch(cartItemsArr.actions.remuveProduct(toy))}
+              onClick={() =>
+                dispatch(cartItemsArr.actions.remuveCartProduct(toy))
+              }
               className={classNames(styles.buyBtn, styles.cancelBtn)}
             >
               Видалити

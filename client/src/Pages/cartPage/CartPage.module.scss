@@ -1,0 +1,22 @@
+@import '../../styles/variables';
+@import '../../styles/media';
+@import '../../styles/mixins';
+
+.wrapper {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.title {
+  margin-bottom: 30px;
+  padding-left: 40px;
+  font-weight: 700;
+  font-size: 40px;
+  color: $c-black;
+}
+
+.sumBlock {
+  font-size: $fs-H1-Desktop + px;
+  font-weight: 900;
+  color: $c-blue;
+}

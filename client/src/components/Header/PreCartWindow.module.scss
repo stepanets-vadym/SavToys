@@ -5,10 +5,18 @@
 .preCartWindow {
   background-color: $c-white;
   border: 1px solid $c-pink;
+  transition: $t-normal;
+  pointer-events: none;
   position: absolute;
-  width: 262px;
+  width: 270px;
   left: -226px;
+  opacity: 0;
   top: 40px;
+}
+
+.activePreCartWindow {
+  opacity: 1;
+  pointer-events: all;
 }
 
 .title {
@@ -22,7 +30,9 @@
 
 .preCartItem {
   padding: 0 5px 5px 5px;
-  @include flexCenter;
+  align-items: center;
+  position: relative;
+  display: flex;
   &:not(:last-child) {
     border-bottom: 1px solid $c-Blue-2-light;
     margin-bottom: 10px;
@@ -37,7 +47,7 @@
 
 .name {
   font-size: $fs-H4-mobile + px;
-  max-width: 205px;
+  max-width: 180px;
   color: $c-black;
   height: 40px;
   overflow: hidden;
@@ -57,4 +67,20 @@
   outline: none;
   border: none;
   height: 30px;
+}
+
+.cancelBtn {
+  @include flexCenter;
+  background-color: transparent;
+  border: 1px solid transparent;
+  transition: $t-normal;
+  position: absolute;
+  color: $c-Red;
+  padding: 3px;
+  right: 5px;
+  top: 10px;
+
+  &:hover {
+    border: 1px solid $c-Red;
+  }
 }

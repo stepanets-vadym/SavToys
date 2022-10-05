@@ -8,17 +8,21 @@ import Footer from 'components/Footer/Footer';
 import Menu from 'components/Header/Menu';
 
 // Redux
-import { useAppDispatch } from 'hooks/redux';
-
-// Style
-import './styles/index.scss';
+import { useAppDispatch, useAppSelector } from 'hooks/redux';
+import { likesProductsArr } from 'store/reducers/LikeProducts';
 import {
   fetchProductTypes,
   getCheckedUser,
 } from 'store/reducers/ActionsCreator';
 
+// Style
+import './styles/index.scss';
+import { cartItemsArr } from 'store/reducers/Cart';
+
 function App() {
   const dispatch = useAppDispatch();
+  const { likesProducts } = useAppSelector((state) => state.likesProducts);
+  const { cartItems } = useAppSelector((state) => state.cartItemsArr);
 
   useEffect(() => {
     dispatch(fetchProductTypes());
@@ -26,6 +30,15 @@ function App() {
       dispatch(getCheckedUser());
     }
   }, []);
+
+  useEffect(() => {
+    dispatch(likesProductsArr.actions.setlocalStorage());
+  }, [likesProducts]);
+
+  useEffect(() => {
+    dispatch(cartItemsArr.actions.setCartlocalStorage());
+  }, [cartItems]);
+
   return (
     <div className='App'>
       <Sprite />

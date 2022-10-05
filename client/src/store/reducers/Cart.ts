@@ -18,14 +18,14 @@ export const cartItemsArr = createSlice({
     getCartProduct(state, action: PayloadAction<IProduct>) {
       state.cartItems.push(action.payload);
     },
-    remuveProduct(state, action: PayloadAction<IProduct>) {
+    remuveCartProduct(state, action: PayloadAction<IProduct>) {
       // це моглоб виглядати так: (state.cartItems.filter(toy => toy.id !== action.payload) але чомусь так не працювало
       state.cartItems.splice(
         state.cartItems.findIndex((item) => item.id === action.payload.id),
         1
       );
     },
-    setlocalStorage(state) {
+    setCartlocalStorage(state) {
       localStorage.setItem(
         'cartItems',
         JSON.stringify(state.cartItems)
