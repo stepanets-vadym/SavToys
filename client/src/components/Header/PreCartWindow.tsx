@@ -1,6 +1,6 @@
 // React
 import classNames from 'classnames';
-import { useState, FC } from 'react';
+import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // Components & elements
@@ -32,12 +32,12 @@ const PreCartWindow: FC<Props> = ({ setOpenCartMenu, openCartMenu }) => {
           ? classNames(styles.preCartWindow, styles.activePreCartWindow)
           : styles.preCartWindow
       }
-      onClick={(e)=> e.stopPropagation()}
+      onClick={(e) => e.stopPropagation()}
       onMouseOver={() => setOpenCartMenu(true)}
       onMouseOut={() => setOpenCartMenu(false)}
     >
       <h3 className={styles.title}>
-        {cartItems.length != 0
+        {cartItems.length !== 0
           ? `В вашій корзині ${cartItems.length} товари`
           : 'Ваша корзина пуста'}
       </h3>
@@ -51,12 +51,17 @@ const PreCartWindow: FC<Props> = ({ setOpenCartMenu, openCartMenu }) => {
             />
           </div>
           <div className={styles.name}>{toy.name}</div>
-          <button className={styles.cancelBtn} onClick={()=>dispatch(cartItemsArr.actions.remuveCartProduct(toy))} >
+          <button
+            className={styles.cancelBtn}
+            onClick={() =>
+              dispatch(cartItemsArr.actions.remuveCartProduct(toy))
+            }
+          >
             <Icon name='cross' />
           </button>
         </div>
       ))}
-      {cartItems.length != 0 && (
+      {cartItems.length !== 0 && (
         <div className={styles.preCartFooter}>
           <button
             className={styles.preCartBtn}

@@ -1,6 +1,5 @@
 // React
 import { FC, useState } from 'react';
-import { LimitSelectType } from 'Types/StaticInfo.types';
 
 // Components & elements
 import Icon from 'elemenst/icon/Icon';
@@ -9,8 +8,8 @@ import Icon from 'elemenst/icon/Icon';
 import styles from './Select.module.scss';
 
 interface Props {
-  options: LimitSelectType[];
-  onChange: (value: string) => void;
+  options: any[];
+  onChange: (value: any) => void;
   defaultVal: string;
 }
 

@@ -1,13 +1,14 @@
 // React
+import { FC } from 'react';
 import classNames from 'classnames';
-import { useEffect } from 'react';
 // Components & elements
 import Icon from 'elemenst/icon/Icon';
-import { useAppDispatch, useAppSelector } from 'hooks/redux';
-import { FC } from 'react';
-import { cartItemsArr } from 'store/reducers/Cart';
-import { likesProductsArr } from 'store/reducers/LikeProducts';
 import { IProduct } from 'Types/Product.types';
+
+// Redux
+import { useAppDispatch, useAppSelector } from 'hooks/redux';
+import { likesProductsArr } from 'store/reducers/LikeProducts';
+import { cartItemsArr } from 'store/reducers/Cart';
 
 // Styles
 import styles from './ToyItem.module.scss';
@@ -31,8 +32,6 @@ export const ToyItem: FC<Props> = ({ toy, buyBtn }) => {
       console.log('plus');
     }
   };
-
-
 
   return (
     <div className={styles.toyItem}>

@@ -1,12 +1,13 @@
 // React
 import classNames from 'classnames';
-import CartItem from 'components/Cart/CartItem';
-import Icon from 'elemenst/icon/Icon';
-import { useAppSelector } from 'hooks/redux';
 import { useState, useEffect } from 'react';
-import { IProduct } from 'Types/Product.types';
-
+// Redux
+import { useAppSelector } from 'hooks/redux';
 // Components & elements
+import CartItem from 'components/Cart/CartItem';
+
+// Types
+import { IProduct } from 'Types/Product.types';
 
 // Styles
 import globalStyle from '../../styles/global/global.module.scss';
@@ -19,20 +20,18 @@ const CartPage = () => {
   const sumPrice = (arr: IProduct[]) => {
     let fullPrice = 0;
     for (let index = 0; index < arr.length; index++) {
-      
-        (fullPrice += arr[index].discount
-          ? Math.round(
-              arr[index].price - (arr[index].price / 100) * arr[index].discount
-            )
-          : arr[index].price)
-      
+      fullPrice += arr[index].discount
+        ? Math.round(
+            arr[index].price - (arr[index].price / 100) * arr[index].discount
+          )
+        : arr[index].price;
     }
-    return fullPrice
+    return fullPrice;
   };
 
-  useEffect(()=> {
-    setSum( sumPrice(cartItems))
-  },[cartItems])
+  useEffect(() => {
+    setSum(sumPrice(cartItems));
+  }, [cartItems]);
 
   return (
     // Cart
@@ -41,7 +40,7 @@ const CartPage = () => {
         <h2 className={styles.title}>Корзна користувача</h2>
         <div className={styles.itemsBlock}>
           {cartItems.map((toy) => (
-           <CartItem toy={toy} key={`cartItem - ${toy.id}`}/>
+            <CartItem toy={toy} key={`cartItem - ${toy.id}`} />
           ))}
         </div>
         <div className={styles.sumBlock}>Ваша сумма замовлення: {sum}грн</div>

@@ -1,6 +1,10 @@
 // React
 import classNames from 'classnames';
+
+// Components & elements
 import CreateBrand from 'components/Admin/CreateBrand';
+import CreateProduct from 'components/Admin/CreateProduct';
+import CreateType from 'components/Admin/CreateType';
 
 // Styles
 import globalStyle from '../../styles/global/global.module.scss';
@@ -13,6 +17,8 @@ const AdminPage = () => {
         <h2 className={styles.title}>Панель адміністратора</h2>
         <div className={styles.createBlock}>
           <CreateBrand />
+          <CreateType/>
+          <CreateProduct/>
         </div>
       </div>
     </div>

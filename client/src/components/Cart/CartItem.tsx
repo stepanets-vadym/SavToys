@@ -10,7 +10,6 @@ import { useAppDispatch } from 'hooks/redux';
 import Icon from 'elemenst/icon/Icon';
 
 // Styles
-import globalStyle from '../../styles/global/global.module.scss';
 import styles from './CartItem.module.scss';
 
 interface Props {

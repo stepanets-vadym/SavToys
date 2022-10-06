@@ -7,29 +7,37 @@ import axios from 'axios';
 import { baseURL } from 'http/Http';
 
 // Styles
-import styles from './CreateBrand.module.scss';
+import styles from './CreateType.module.scss';
 
-const CreateBrand = () => {
+const CreateType = () => {
   const [value, setValue] = useState<string>('');
-  const [image, setImage] = useState<null | FileList>(null);
+  const [iconName, setIconName] = useState<string>('');
+  const [menuIconName, setMenuIconName] = useState<string>('');
 
   const [openCreateWindow, setOpenCreateWindow] = useState<boolean>(false);
 
   const submit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     console.log(value);
-    console.log(image?.[0]);
 
     const formData = new FormData();
     formData.append('name', value);
-    formData.append('img', image?.[0] ? image?.[0] : '');
+    formData.append('icon', iconName);
+    formData.append('menuIcon', menuIconName);
+    const token = localStorage.getItem('token');
 
-    const apiUrl = `${baseURL}/brand`;
+    const apiUrl = `${baseURL}/type`;
 
     await axios
-      .post(apiUrl, formData)
+      .post(apiUrl, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((res) => {
         setValue('');
+        setIconName('');
+        setMenuIconName('');
         setOpenCreateWindow(false);
         console.log(res);
       })
@@ -39,12 +47,12 @@ const CreateBrand = () => {
   };
 
   return (
-    <div className={styles.CreateBrand}>
+    <div className={styles.CreateType}>
       <button
         className={styles.openBtn}
         onClick={() => setOpenCreateWindow(true)}
       >
-        Додати бренд
+        Додати тип
       </button>
 
       <div
@@ -61,7 +69,7 @@ const CreateBrand = () => {
           onSubmit={submit}
         >
           <label className={styles.nameBlock}>
-            <span className={styles.name}>Назва бренду</span>
+            <span className={styles.name}>Назва типу</span>
             <input
               type={'text'}
               className={styles.input}
@@ -69,14 +77,25 @@ const CreateBrand = () => {
               onChange={(e) => setValue(e.target.value)}
             />
           </label>
-          <label className={styles.fileBlock}>
-            <span className={styles.name}>Оберіть картинку</span>
+          <label className={styles.nameBlock}>
+            <span className={styles.name}>Назва іконки типу</span>
             <input
-              type={'file'}
-              className={styles.fileInput}
-              onChange={(e) => setImage(e.target.files)}
+              type={'text'}
+              className={styles.input}
+              value={iconName}
+              onChange={(e) => setIconName(e.target.value)}
             />
           </label>
+          <label className={styles.nameBlock}>
+            <span className={styles.name}>Назва іконки типу для меню</span>
+            <input
+              type={'text'}
+              className={styles.input}
+              value={menuIconName}
+              onChange={(e) => setMenuIconName(e.target.value)}
+            />
+          </label>
+
           <button className={styles.submitBtn} type={'submit'}>
             Створити
           </button>
@@ -86,4 +105,4 @@ const CreateBrand = () => {
   );
 };
 
-export default CreateBrand;
+export default CreateType;

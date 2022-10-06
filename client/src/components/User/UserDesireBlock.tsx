@@ -1,16 +1,13 @@
 // React
 import classNames from 'classnames';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
 // Components & elements
 import Icon from 'elemenst/icon/Icon';
-import { UserTab, userTabType } from 'Types/UserTab.types';
 import { ToyItem } from 'elemenst/toyItem/ToyItem';
 import { SHOP_ROUTE } from 'utils/consts';
 
 // Redux
-import { useAppDispatch, useAppSelector } from 'hooks/redux';
-import { likesProductsArr } from 'store/reducers/LikeProducts';
+import { useAppSelector } from 'hooks/redux';
 
 // Style
 
@@ -18,9 +15,8 @@ import styles from './UserDesireBlock.module.scss';
 
 export default function UserDesireBlock() {
   const { likesProducts } = useAppSelector((state) => state.likesProducts);
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  
+
   return (
     <div className={styles.UserDesireBlock}>
       {likesProducts.length === 0 ? (
