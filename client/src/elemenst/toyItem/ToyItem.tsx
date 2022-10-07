@@ -26,10 +26,9 @@ export const ToyItem: FC<Props> = ({ toy, buyBtn }) => {
   const LikeProductFunc = (Item: IProduct) => {
     if (likesProducts.find((likeToy) => likeToy.id === Item.id)) {
       dispatch(likesProductsArr.actions.remuveProduct(Item));
-      console.log('minus');
-    } else {
+   
       dispatch(likesProductsArr.actions.getLikeProduct(Item));
-      console.log('plus');
+  
     }
   };
 

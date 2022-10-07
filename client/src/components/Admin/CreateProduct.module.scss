@@ -1,3 +1,150 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 @import '../../styles/media';
+
+.openBtn {
+  font-size: $fs-H2-Desktop + px;
+  background-color: transparent;
+  border: 1px solid $c-pink;
+  transition: $t-normal;
+  @include flexCenter;
+  border-radius: 15px;
+  height: 40px;
+  width: 100%;
+
+  &:hover {
+    background-color: $c-pink;
+    color: $c-white;
+  }
+}
+
+.createWindow {
+  background-color: rgba($c-dark, 0.5);
+  transition: $t-normal;
+  pointer-events: none;
+  @include flexCenter;
+  position: fixed;
+  height: 100vh;
+  z-index: 999;
+  width: 100%;
+  opacity: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+}
+
+.active {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.content {
+  background-color: $c-white;
+  border: $c-blue 2px solid;
+  flex-direction: column;
+  position: relative;
+  overflow-y: scroll;
+  max-height: 100vh;
+  display: flex;
+  padding: 40px;
+  width: 500px;
+}
+
+.nameBlock {
+  margin-bottom: 20px;
+}
+
+.input {
+  border: 1px solid $c-blue;
+  border-radius: 6px;
+  outline: none;
+  padding: 5px;
+}
+
+.name {
+  font-size: $fs-H2-Desktop + px;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  display: flex;
+}
+
+.chooseBlock {
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 20px;
+  grid-gap: 20px;
+  display: grid;
+}
+
+.fileBlock {
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: fit-content;
+  display: flex;
+}
+
+.checkBlock{
+  justify-content: space-between;
+  display: flex;
+}
+
+.checkInput{
+  @include flexCenter;
+  width: fit-content;
+}
+
+.addDesBtn{
+  border: 1px solid transparent;
+  font-size: $fs-H3-Desktop +  px;
+  background-color: $c-pink;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  align-self: center;
+  color: $c-white;
+  height: 30px;
+  width: 80%;
+}
+
+.submitBtn {
+  background-color: transparent;
+  border: 2px solid $c-blue;
+  transition: $t-normal;
+  @include flexCenter;
+  border-radius: 15px;
+  align-self: center;
+  width: fit-content;
+  padding: 0 30px;
+  outline: none;
+  height: 30px;
+
+  &:hover {
+    background-color: $c-blue;
+    color: $c-white;
+  }
+}
+
+.description {
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+  grid-gap: 10px;
+  display: grid;
+  width: 100%;
+}
+
+.desItem {
+  width: 100%;
+}
+
+.remuveBtn {
+  background-color: transparent;
+  border: 1px solid $c-Red;
+  @include flexCenter;
+  border-radius: 50%;
+  position: absolute;
+  color: $c-Red;
+  right: -30px;
+  padding: 5px;
+  top: 0;
+}

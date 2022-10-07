@@ -11,9 +11,10 @@ interface Props {
   options: any[];
   onChange: (value: any) => void;
   defaultVal: string;
+  takeAllValue?: boolean;
 }
 
-const CustomSelect: FC<Props> = ({ onChange, options, defaultVal }) => {
+const CustomSelect: FC<Props> = ({ onChange, options, defaultVal, takeAllValue = false }) => {
   // відкрити меню селекту
   const [openMenu, SetOpenMenu] = useState<boolean>(false);
   // Стандартне значення 
@@ -44,7 +45,8 @@ const CustomSelect: FC<Props> = ({ onChange, options, defaultVal }) => {
             className={styles.option}
             key={option.id}
             onClick={(e) => {
-              getSelectValue(e, option.value, option.name);
+              getSelectValue(e, takeAllValue ? option :option.value, option.name);
+              
             }}
           >
             {option.name}

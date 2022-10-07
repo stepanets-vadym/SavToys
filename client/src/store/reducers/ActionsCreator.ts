@@ -38,7 +38,7 @@ export const getCheckedUser = () => async (dispatch: AppDispatch) => {
   const apiUrl = `${baseURL}/user/auth`;
   const token = localStorage.getItem('token');
   const user = localStorage.getItem('user');
-  console.log('work');
+
 
   const config = {
     method: 'get',

@@ -11,6 +11,7 @@ import Menu from 'components/Header/Menu';
 import { useAppDispatch, useAppSelector } from 'hooks/redux';
 import { likesProductsArr } from 'store/reducers/LikeProducts';
 import {
+  fetchBrands,
   fetchProductTypes,
   getCheckedUser,
 } from 'store/reducers/ActionsCreator';
@@ -26,6 +27,7 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchProductTypes());
+    dispatch(fetchBrands());
     if (localStorage.getItem('token')) {
       dispatch(getCheckedUser());
     }

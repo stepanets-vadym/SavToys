@@ -18,12 +18,15 @@ const CreateType = () => {
 
   const submit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    console.log(value);
+  
 
     const formData = new FormData();
     formData.append('name', value);
     formData.append('icon', iconName);
     formData.append('menuIcon', menuIconName);
+
+    console.log(formData);
+    
     const token = localStorage.getItem('token');
 
     const apiUrl = `${baseURL}/type`;

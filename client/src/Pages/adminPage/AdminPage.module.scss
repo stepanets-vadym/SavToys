@@ -9,9 +9,12 @@
 
 .title {
   margin-bottom: 40px;
+  font-weight: 700;
+  font-size: 38px;
+  color: $c-pink;
 }
 
-.createBlock{
+.createBlock {
   display: grid;
   grid-gap: 30px;
 }

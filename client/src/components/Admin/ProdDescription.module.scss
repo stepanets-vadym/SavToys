@@ -1,0 +1,35 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+@import '../../styles/media';
+
+.description {
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+  grid-gap: 10px;
+  display: grid;
+  width: 100%;
+}
+
+.desItem {
+  width: 100%;
+}
+
+.remuveBtn {
+  background-color: transparent;
+  border: 1px solid $c-Red;
+  @include flexCenter;
+  border-radius: 50%;
+  position: absolute;
+  color: $c-Red;
+  right: -30px;
+  padding: 5px;
+  top: 0;
+}
+.input {
+  border: 1px solid $c-blue;
+  border-radius: 6px;
+  outline: none;
+  padding: 5px;
+}

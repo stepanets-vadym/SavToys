@@ -17,8 +17,7 @@ const CreateBrand = () => {
 
   const submit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    console.log(value);
-    console.log(image?.[0]);
+   
 
     const formData = new FormData();
     formData.append('name', value);
