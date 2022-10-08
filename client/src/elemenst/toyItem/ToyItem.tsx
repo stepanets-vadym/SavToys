@@ -26,23 +26,17 @@ export const ToyItem: FC<Props> = ({ toy, buyBtn }) => {
   const LikeProductFunc = (Item: IProduct) => {
     if (likesProducts.find((likeToy) => likeToy.id === Item.id)) {
       dispatch(likesProductsArr.actions.remuveProduct(Item));
-   
-      dispatch(likesProductsArr.actions.getLikeProduct(Item));
-  
-    }
+    } else dispatch(likesProductsArr.actions.getLikeProduct(Item));
   };
 
   return (
     <div className={styles.toyItem}>
       <div className={styles.imageBlock}>
-        {toy.img.map((image) => (
-          <img
-            key={image}
-            className={styles.image}
-            src={`http://localhost:5000/${image}`}
-            alt='img'
-          />
-        ))}
+        <img
+          className={styles.image}
+          src={`http://localhost:5000/${toy.img[0]}`}
+          alt='img'
+        />
 
         <label className={styles.likeItem}>
           <input

@@ -90,7 +90,7 @@ Rating.belongsTo(Product);
 Product.hasMany(BasketProduct);
 BasketProduct.belongsTo(Product);
 
-Product.hasMany(Characteristics);
+Product.hasMany(Characteristics, {as: 'characteristics'});
 Characteristics.belongsTo(Product);
 
 Product.hasMany(Description);

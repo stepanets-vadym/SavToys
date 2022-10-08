@@ -49,33 +49,23 @@ const CreateProduct = () => {
 
   const submit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    
 
     const formData = new FormData();
     formData.append('name', value);
     formData.append('price', `${Number(price)}`);
     formData.append('brandId', `${brand?.id}`);
     formData.append('typeId', `${type?.id}`);
-    formData.append('img', image?.[0] ? image?.[0] : '');
+    if (image !== null) {
+      for (let index = 0; index < image.length; index++) {
+        formData.append('img', image[index]);
+      }
+    }
     formData.append('newProd', `${newProd}`);
     formData.append('bestseller', `${bestseller}`);
     formData.append('discount', `${Number(discount)}`);
     formData.append('characteristics', JSON.stringify(info));
-    
 
     const apiUrl = `${baseURL}/product`;
-
-    // console.log(value);
-    // console.log(`${Number(price)}`);
-    // console.log(`${brand?.id}`);
-    // console.log(`${type?.id}`);
-    // console.log(image?.[0] ? image?.[0] : '');
-    // console.log(`${newProd}`);
-    // console.log(`${bestseller}`);
-    // console.log(`${Number(discount)}`);
-    // console.log(JSON.stringify(info));
-    
-
 
     await axios
       .post(apiUrl, formData)
@@ -88,8 +78,6 @@ const CreateProduct = () => {
         console.log(errors);
       });
   };
-
-  
 
   return (
     <div className={styles.CreateProduct}>
@@ -112,6 +100,8 @@ const CreateProduct = () => {
           className={styles.content}
           onClick={(e) => e.stopPropagation()}
           onSubmit={submit}
+          encType='multipart/form-data'
+          method='post'
         >
           <label className={styles.nameBlock}>
             <span className={styles.name}>Назва товару</span>
@@ -153,11 +143,12 @@ const CreateProduct = () => {
             <span className={styles.name}>Оберіть картинку</span>
             <input
               type={'file'}
+              multiple
               className={styles.fileInput}
               onChange={(e) => setImage(e.target.files)}
             />
           </label>
-         <div className={styles.chooseBlock}>
+          <div className={styles.chooseBlock}>
             <label className={styles.checkBlock}>
               <span className={styles.name}>Новий товар</span>
               <input
@@ -174,7 +165,7 @@ const CreateProduct = () => {
                 onChange={() => setBestseller(!bestseller)}
               />
             </label>
-         </div>
+          </div>
           <label className={styles.nameBlock}>
             <span className={styles.name}>Дисконт від 1 - 100</span>
             <input
@@ -184,7 +175,11 @@ const CreateProduct = () => {
               onChange={(e) => setDiscount(e.target.value)}
             />
           </label>
-          <button className={styles.addDesBtn} onClick={() => addInfo()}>
+          <button
+            className={styles.addDesBtn}
+            type={'button'}
+            onClick={() => addInfo()}
+          >
             Додати характеристику
           </button>
           <div>

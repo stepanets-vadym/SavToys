@@ -77,7 +77,7 @@ export default function UserBlock() {
               </span>
               <span className={styles.logoutText}>Вихід</span>
             </button>
-            <button onClick={() => navigate(ADMIN_ROUTE)}>admin</button>
+            <button className={styles.logoutBtn} onClick={() => navigate(ADMIN_ROUTE)}>admin</button>
             <button
               className={styles.logoutBtn}
               onClick={() => (

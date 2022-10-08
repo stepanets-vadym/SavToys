@@ -24,7 +24,7 @@ const CartItem: FC<Props> = ({ toy }) => {
       <div className={styles.toyImage}>
         <img
           className={styles.image}
-          src={`http://localhost:5000/${toy.img}`}
+          src={`http://localhost:5000/${toy.img[0]}`}
           alt='img'
         />
       </div>

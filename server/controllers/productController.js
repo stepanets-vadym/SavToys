@@ -11,7 +11,7 @@ const path = require('path');
 class ProductController {
   async create(req, res, next) {
     try {
-      const {
+      let {
         name,
         price,
         brandId,
@@ -48,23 +48,29 @@ class ProductController {
         img.mv(path.resolve(__dirname, '..', 'static', 'products', fileName));
         fileNames.push(fileName);
       }
-      // const id = brandId
-      // const getbrand = await Brand.findOne({
-      //   where: { id },
-      // });
 
       const product = await Product.create({
         name,
         price,
         brandId,
         typeId,
-        characteristics,
-        description,
+
         img: fileNames,
         newProd,
         bestseller,
         discount,
       });
+
+      if (characteristics) {
+        characteristics = JSON.parse(characteristics);
+        characteristics.forEach((i) =>
+          Characteristics.create({
+            name: i.name,
+            description: i.description,
+            productId: product.id,
+          })
+        );
+      }
 
       return res.json(product);
     } catch (error) {
